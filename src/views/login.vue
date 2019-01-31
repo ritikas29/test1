@@ -1,21 +1,45 @@
 <template>
-    <div id="login">
+ <!--<div id="login">
         <h1>Login</h1>
         
         
         <form>
+        <div class="form-icon text-left">
+        <label for="example">Username</label><br/>
+        <input type="text" class="" id="username"  v-model="input.username" placeholder="Enter username">
+        <span class="zmdi zmdi-account"></span>
+        </div>
   <div class="form-group">
-    <label for="example">Username</label>
-    <input type="text" class="form-control" id="username"  v-model="input.username" placeholder="Enter username">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" v-model="input.password"  placeholder="Password">
+    <label for="exampleInputPassword1">Password</label><br/>
+    <input type="password" class="" id="exampleInputPassword1" v-model="input.password"  placeholder="Password"><br/>
   </div>
             <button type="button" class="btn btn-primary" v-on:click="login()">Login</button>
         </form>
+    </div> -->
+
+ <div class="login">
+        <div class="image">
+            <i class="zmdi zmdi-account-circle  zmdi-hc-5x"></i>
+            <h2>Login</h2>
+        </div>
+        <form action="#">
+            <div class="form-icon">
+                <label for="Username">username</label>
+                <input type="text" v-model="input.username" placeholder="Username">
+                <span class="zmdi zmdi-account"></span>
+            </div>
+            <div class="form-icon">
+                <label for="Password">Password</label>
+                <input type="password"  v-model="input.password" placeholder="Password">
+                <span class="zmdi zmdi-lock"></span>
+            </div>
+            <button type="submit" v-on:click="login()">Login</button>
+            
+        </form>
     </div>
+
 </template>
+
 
 <script>
     export default {
@@ -46,12 +70,15 @@
 </script>
 
 <style src="./login.css" scoped>
-    #login {
+   /* #login {
         width: 500px;
-        border: 1px solid #CCCCCC;
+        border: 2px solid #CCCCCC;
         background-color: rgb(255, 255, 255);
         margin: auto;
         margin-top: 200px;
         padding: 20px;
-    }
+        justify-content: center;
+        align-items: center;
+    
+    } */
 </style>
