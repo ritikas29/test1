@@ -34,8 +34,10 @@
                 <span class="zmdi zmdi-lock"></span>
             </div>
             <button type="submit" v-on:click="login()">Login</button>
+                    <router-link to="/register">signup</router-link>
             
         </form>
+
     </div>
 
 </template>
@@ -64,7 +66,19 @@
                 } else {
                     console.log("A username and password must be present");
                 }
-            }
+
+            // axios.post('http://localhost:3000/post',this.login)
+              //  .then(response => {
+                //    let token =response.data.username.api_toekn;
+                  //  localStorage.setItem('token',token);
+                    //this.$router.push('/');
+                //});
+
+
+            }//,
+            // navigate() {
+            //     router.push({ name: "register" });
+            // }
         }
     }
 </script>
