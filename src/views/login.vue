@@ -34,8 +34,7 @@
                 <span class="zmdi zmdi-lock"></span>
             </div>
             <button type="submit" v-on:click="login()">Login</button>
-            
-        </form>
+                    </form>
     </div>
 
 </template>
@@ -54,6 +53,8 @@
         },
         methods: {
             login() {
+
+                
                 if(this.input.username != "" && this.input.password != "") {
                     if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
                         this.$emit("authenticated", true);
