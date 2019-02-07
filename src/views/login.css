@@ -28,10 +28,10 @@ body{
 .image{
    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
     clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0 90%);
-   background: url(https://image.freepik.com/vector-gratis/ilustracion-vectorial-paisaje-montana_1441-72.jpg);
+   background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh7k7qd5LakASxBEXDZuqxAJtNMumFsDy8M1Otr4ZlSEaho3Ft);
     height: 170px;
     background-size: cover;
-    background-position: center -90px;
+    background-position: center -0px;
     border-radius:5px;
     color: #ffffff;
     display: flex;
@@ -80,7 +80,7 @@ span{
 
 span{
     position: absolute;
-    bottom: 10px;
+    bottom: 22px;
     left: 7px;
     transition: 0.2s all ease;
 }
@@ -91,6 +91,7 @@ input{
     border: 0px;
     border-bottom: 2px solid var(--primary);
     outline: none;
+    margin-bottom: 10px;
     transition: 0.2s all ease;
 }
 
@@ -104,7 +105,7 @@ input:focus + span{
 }
 
 button{
-    background: var(--primary);;
+    background: var(--primary);
     color: #ffffff;
     padding: 12px 12px;
     border: none;

@@ -24,17 +24,20 @@
         </div>
         <form action="#">
             <div class="form-icon">
-                <label for="Username">username</label>
+                <label for="Username">Username</label>
                 <input type="text" v-model="input.username" placeholder="Username">
-                <span class="zmdi zmdi-account"></span>
+                <span class="fa fa-user" aria-hidden="true"></span>
             </div>
             <div class="form-icon">
                 <label for="Password">Password</label>
                 <input type="password"  v-model="input.password" placeholder="Password">
-                <span class="zmdi zmdi-lock"></span>
+                <span class="fa fa-key" aria-hidden="true"></span>
             </div>
             <button type="submit" v-on:click="login()">Login</button>
-                    </form>
+                    <router-link to="/register">signup</router-link>
+            
+        </form>
+
     </div>
 
 </template>
@@ -65,7 +68,19 @@
                 } else {
                     console.log("A username and password must be present");
                 }
-            }
+
+            // axios.post('http://localhost:3000/post',this.login)
+              //  .then(response => {
+                //    let token =response.data.username.api_toekn;
+                  //  localStorage.setItem('token',token);
+                    //this.$router.push('/');
+                //});
+
+
+            }//,
+            // navigate() {
+            //     router.push({ name: "register" });
+            // }
         }
     }
 </script>

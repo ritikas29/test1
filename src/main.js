@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import LoginComponent from "./views/login.vue"
+import Register from "./views/register.vue"
 import SecureComponent from "./views/secure.vue"
 Vue.config.productionTip = false
 Vue.use(VueRouter);
@@ -18,6 +19,11 @@ Vue.use(VueRouter);
           path: "/login",
           name: "login",
           component: LoginComponent
+      },
+      {
+          path:"/register",
+          name:"register",
+          component: Register
       },
       {
           path: "/secure",
