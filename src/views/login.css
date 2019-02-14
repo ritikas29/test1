@@ -10,10 +10,10 @@
 body{
     display: flex;
     height: 100vh;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    font-family: sans-serif;
-    background: #BDBDBD;
+    font-family: cursive;
+     background: #BDBDBD; 
     
 }
 
@@ -56,6 +56,9 @@ h2{
 
 h2,i{
     position: relative;
+    font-family: cursive;
+    color:aquamarine;
+    font-size: 2rem;
 }
 
 form{ 
@@ -76,6 +79,7 @@ form{
 label, 
 span{
     color: var(--primary);
+    margin-bottom:0.1rem;
 }
 
 span{
@@ -91,7 +95,7 @@ input{
     border: 0px;
     border-bottom: 2px solid var(--primary);
     outline: none;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     transition: 0.2s all ease;
 }
 

@@ -33,8 +33,8 @@
     box-sizing: border-box;
 }
    #secure {
-      /*  background-color: #FFFFFF; */
-        padding: 200px;
+       position: relative;
+        /*background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQKpmxOUMC8yHZrzWTow6KvUeuOHN13Cdq5rJ2kZZA5vKKCKKzew); */
         margin-top: 10px;
     } 
     
