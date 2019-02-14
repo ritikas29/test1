@@ -24,14 +24,14 @@
         </div>
         <form action="#">
             <div class="form-icon">
-                <label for="Username">username</label>
+                <label for="Username">Username</label>
                 <input type="text" v-model="input.username" placeholder="Username">
-                <span class="zmdi zmdi-account"></span>
+                <span class="fa fa-user" aria-hidden="true"></span>
             </div>
             <div class="form-icon">
                 <label for="Password">Password</label>
                 <input type="password"  v-model="input.password" placeholder="Password">
-                <span class="zmdi zmdi-lock"></span>
+                <span class="fa fa-key" aria-hidden="true"></span>
             </div>
             <button type="submit" v-on:click="login()">Login</button>
                     <router-link to="/register">signup</router-link>
@@ -56,6 +56,8 @@
         },
         methods: {
             login() {
+
+                
                 if(this.input.username != "" && this.input.password != "") {
                     if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
                         this.$emit("authenticated", true);

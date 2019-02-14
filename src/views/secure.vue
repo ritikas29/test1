@@ -1,38 +1,31 @@
 <template>
     <div id="secure">
-      
-    <!--div class="file btn btn-lg btn-primary">
-   <button type="button" class="btn btn-lg btn-primary" disabled>upload</button>
-   <input type="file" name="file"/>
-   </>
-    <button type="button" class="btn btn-secondary" v-on:click="submit()" >SUBMIT</button  -->
     <div class="container">
-    <div class="large-12 medium-12 small-12 cell">
-      <label>Files
-        <input type="file" id="files" ref="files" />
+
+
+    <div class="file btn btn-lg btn-primary"><br/>
+  <!-- <button type="button" class="btn btn-lg btn-primary" disabled>Upload</button><br/>-->
+   <!--input type="file" @change="file"/>
+       <button type="button" class="btn btn-secondary" v-on:click="submitFiles()" >SUBMIT</button-->
+    <!--input type="file" v-on:change="onFileChanged"-->
+  <label>Files
+        <input type="file" id="files" ref="files" multiple v-on:change="handleFilesUpload()"/>
       </label>
-      <button type="button" class="btn btn-secondary" v-on:click="submitFiles()" >SUBMIT</button>
-      <button type="button" class="btn btn-secondary" v-on:click="showData()" >Result</button>
+      <button v-on:click="submitFiles()">Submit</button>
+   </div>
+   <br/>
+    <button type="button" class="btn btn-secondary" v-on:click="showData()" >Result</button>
       <div v-if="result" >
           <paginate></paginate>
-      </div>
-      
-            <!--router-link to="/secure">result
 
-      <paginate></paginate>
-      </router-link-->
-    
-      <!--router-link to="/paginate" v-on:click.native="submitFiles()" replace>
-            <button type="button" class="btn btn-primary">submit</button>
-       </router-link-->
     </div>
     
   </div>
-</div>
+  </div>
 </template>
 
 <script>
-//import axios from "axios"
+import axios from "axios"
 import paginate from "../components/paginate.vue"
 
     export default {
@@ -49,20 +42,57 @@ import paginate from "../components/paginate.vue"
                     this.result = true;
                     alert('sucessfully 1');
                 },
+                 files: ''
             }
         },
-        methods: {
+      
 
+    methods: {
+      /*
+        Submits all of the files to the server
+      */
+      submitFiles(){
+        /*
+          Initialize the form data
+        */
+        let formData = new FormData();
 
+        /*
+          Iteate over any file sent over appending the files
+          to the form data.
+        */
+        for( var i = 0; i < this.files.length; i++ ){
+          let file = this.files[i];
 
-            submitFiles() {
-                alert('sucessfully ')
-      // `event` is the native DOM event
-         if (event) {
-        alert(event.target.tagName)
+          formData.append('files[' + i + ']', file);
+        }
+           
+        /*
+          Make the request to the POST /multiple-files URL
+        */
+        axios.post( 'http://192.168.15.230:8000/upload',
+          formData,
+          {
+            headers: {
+                'Content-Type': 'multipart/form-data'
             }
           }
+        ).then(function(){
+          console.log('SUCCESS!!');
+        })
+        .catch(function(){
+          console.log('FAILURE!!');
+        });
+      },
 
+      /*
+        Handles a change on the file upload
+      */
+      handleFilesUpload(){
+        this.files = this.$refs.files.files;
+      }
+    }
+  }
 
                /*let formData = new FormData();
                for(var i=0;i<this.files.length;i++) {
@@ -82,18 +112,34 @@ import paginate from "../components/paginate.vue"
                 .catch(function(){
                     console.log("failure !!")
                 });*/
-          }
           
-     }
+          
 
 </script>
 
 <style  scoped>
+*{
+    box-sizing: border-box;
+}
    #secure {
-        background-color: #FFFFFF;
-        padding: 20px;
+      /*  background-color: #FFFFFF; */
+        padding: 200px;
         margin-top: 10px;
     } 
     
+button{
+    background:lightgreen; 
+    color: #6373cc;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    background: purple;
+    transition: 0.2s all ease;
+}
     
 </style>

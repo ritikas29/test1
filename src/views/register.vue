@@ -7,19 +7,19 @@
         <form action="#">
 
             <div class="form-icon">
-                <label for="username">username</label>
+                <label for="username">Username</label>
                 <input type="text" v-model="input1.username" placeholder="username">
-                <span class="zmdi zmdi-email"></span>
+                <span class="fa fa-envelope" aria-hidden="true"></span>
             </div>
             <div class="form-icon">
                 <label for="Password">Password</label>
                 <input type="password" v-model="input1.password" placeholder="Password">
-                <span class="zmdi zmdi-lock"></span>
+                <span class="fa fa-key" aria-hidden="true"></span>
             </div>
             <div class="form-icon">
                 <label for="Confirm Password"> Confirm Password</label>
                 <input type="password" v-model="input1.confirmpassword" placeholder="Confirm Password">
-                <span class="zmdi zmdi-lock"></span>
+                <span class="fa fa-key" aria-hidden="true"></span>
             </div>
             <button type="submit" v-on:click="signin()">Register</button>
         </form>

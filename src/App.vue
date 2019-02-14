@@ -58,4 +58,18 @@
     
         text-align: right;
     }
+    button{
+    background:lightgreen; 
+    color: #6373cc;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    background: purple;
+    transition: 0.2s all ease;
+}
 </style>
