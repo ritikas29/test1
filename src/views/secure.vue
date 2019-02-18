@@ -1,5 +1,7 @@
 <template>
     <div id="secure">
+    <div class="container">
+
 
     <div class="file btn btn-lg btn-primary">
   <!-- <button type="button" class="btn btn-lg btn-primary" disabled>Upload</button><br/>-->
@@ -9,35 +11,110 @@
   <label>Files
         <input type="file" id="files" ref="files" multiple v-on:change="handleFilesUpload()"/>
       </label>
-    </div>
-    <br/>
-
       <button v-on:click="submitFiles()">Submit</button>
-   
-   
+   </div>
+   <br/>
     <button type="button" class="btn btn-secondary" v-on:click="showData()" >Result</button>
       <div v-if="result" >
           <paginate></paginate>
 
     </div>
+    
+  </div>
+  </div>
 </template>
 
 <script>
+import axios from "axios"
+import paginate from "../components/paginate.vue"
+
     export default {
+        
         name: 'Secure',
+        components:{ 
+            Paginate: paginate
+        
+          },
         data() {
-            return {};
+            return {
+                result : false,
+                showData(){
+                    this.result = true;
+                    alert('sucessfully 1');
+                },
+                 files: ''
+            }
         },
-        methods: {
-            submit() {
-                alert('sucessfully ')
-      // `event` is the native DOM event
-         if (event) {
-        alert(event.target.tagName)
+      
+
+    methods: {
+      /*
+        Submits all of the files to the server
+      */
+      submitFiles(){
+        /*
+          Initialize the form data
+        */
+        let formData = new FormData();
+
+        /*
+          Iteate over any file sent over appending the files
+          to the form data.
+        */
+        for( var i = 0; i < this.files.length; i++ ){
+          let file = this.files[i];
+
+          formData.append('files[' + i + ']', file);
+        }
+           
+        /*
+          Make the request to the POST /multiple-files URL
+        */
+        axios.post( 'http://192.168.15.230:8000/upload',
+          formData,
+          {
+            headers: {
+                'Content-Type': 'multipart/form-data'
             }
           }
-        }
+        ).then(function(){
+          console.log('SUCCESS!!');
+        })
+        .catch(function(){
+          console.log('FAILURE!!');
+        });
+      },
+
+      /*
+        Handles a change on the file upload
+      */
+      handleFilesUpload(){
+        this.files = this.$refs.files.files;
+      }
     }
+  }
+
+               /*let formData = new FormData();
+               for(var i=0;i<this.files.length;i++) {
+                   let file = this.files[i]
+                   formData.append('files['+i +']',file)
+               }
+                axios.post('http://localhost:3000/posts',
+                formData,
+                {
+                    headers: {
+                        'content-type':'multipart/form-data'
+                    }
+                } 
+                ).then(function(){
+                    console.log('success')
+                })
+                .catch(function(){
+                    console.log("failure !!")
+                });*/
+          
+          
+
 </script>
 
 <style  scoped>

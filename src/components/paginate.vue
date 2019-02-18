@@ -3,16 +3,17 @@
    <div class="container">
   <table class="table table-striped mt-4">
   <thead>
-    
-    <th scope="col">sno</th>
-    <th scope="col">images</th>
-    <th scope="col">trashfound</th>
-    <th scope="col">confidence</th>
-    <th scope="col">modify</th>
+    <tr>
+        <th scope="col">sno</th>
+        <th scope="col">images</th>
+        <th scope="col">trashfound</th>
+        <th scope="col">confidence</th>
+        <th scope="col">modify</th>
+    </tr>
   </thead>
   <tbody>
     <tr v-for="paginate in paginate" :key="paginate.id" >
-    <!--  <th scope="row"></th> -->
+      <th scope="row"></th>
 
       <td>{{paginate.sno}}</td>
       <td><img :src=" paginate.images "   width="100" height="100"/> 

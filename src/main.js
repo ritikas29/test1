@@ -5,7 +5,10 @@ import VueRouter from 'vue-router'
 import LoginComponent from "./views/login.vue"
 import Register from "./views/register.vue"
 import SecureComponent from "./views/secure.vue"
+import BootstrapVue from 'bootstrap-vue'
+//import paginate from "./components/paginate.vue"
 Vue.config.productionTip = false
+Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 //export default new VueRouter({
  const  routes= [
@@ -28,11 +31,18 @@ Vue.use(VueRouter);
       {
           path: "/secure",
           name: "secure",
-          component: SecureComponent
-      }
+          component:  SecureComponent
+      },
+     // {
+         // path:"/paginate",
+          //name: "paginate",
+          //component: paginate
+      //}
+      
   ]
 //})
-const router = new VueRouter({routes: routes});
+const router = new VueRouter({
+    routes: routes});
 new Vue({
     el: '#app',
     router:router,

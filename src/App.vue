@@ -3,16 +3,19 @@
         <div id="nav">
             <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>
             <button type="button" class="btn btn-primary">logout</button>
+    
        </router-link>
         </div>
         <router-view @authenticated="setAuthenticated" />
-    </div>
+     </div>
 </template>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <script>
+
     export default {
         name: 'App',
+
         data() {
             return {
                 authenticated: false,
