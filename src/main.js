@@ -6,7 +6,11 @@ import LoginComponent from "./views/login.vue"
 import Register from "./views/register.vue"
 import SecureComponent from "./views/secure.vue"
 import BootstrapVue from 'bootstrap-vue'
+import VueImg from 'v-img';
+
+Vue.use(VueImg);
 //import paginate from "./components/paginate.vue"
+
 Vue.config.productionTip = false
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);

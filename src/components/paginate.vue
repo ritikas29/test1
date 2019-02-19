@@ -1,7 +1,7 @@
 <template>
-
-   <div class="container">
-  <table class="table table-striped mt-4">
+   
+    <div class="page-item">
+  <table id="user-table" class="display" style="width:100%">
   <thead>
     <tr>
         <th scope="col">sno</th>
@@ -16,38 +16,45 @@
       <th scope="row"></th>
 
       <td>{{paginate.sno}}</td>
-      <td><img :src=" paginate.images "   width="100" height="100"/> 
+      <td>
+      <img v-img:group :src=" paginate.images" width="100" height="100">  
+      <!--img :src=" paginate.images"   width="100" height="100"/--> 
     </td>
       <td>{{paginate.trashfound}}</td> 
        <td> {{paginate.confidence}}</td>
       <td>{{paginate.modify}}</td>
     </tr>
     
-  </tbody>
-
+    
+</tbody>
+  
 </table>
 
-       </div> 
+</div>
+      
 </template>
 <script>
 //import json1 from '../assets/json/table.json';
 import axios from 'axios' //local directory
+//import jQuery from 'jquery'
+//import Paginate from 'vuejs-paginate'
+//let $ = jQuery
+import VueImg from 'v-img'
 export default{
-  
+      components: {
+    VueImg
+  },
     data(){
         return {
-            paginate: [] 
+            paginate: [] ,
+           
+    
         }
     },
     created(){
         //console.log(json1);
-
-                
-         axios.get('http://localhost:3000/comments').then(paginate =>{
-              
-              
+         axios.get('http://localhost:3000/comments').then(paginate =>{   
                this.paginate =paginate.data
-
          })
          //.catch(error => console.log(error));
 
@@ -58,11 +65,22 @@ export default{
            this.posts =posts.data
 
          });*/
-    } 
+    },
+   //   // $('#example').DataTable();
+    // }
+   //methods: {
+     
+     //clickCallback:function(pageNum) {
+       //console.log(pageNum)
+       //this.pageNum = pageNum
+     //}
+  //}
+  
 }         
  </script>
  <style>
 
+<<<<<<< 26c3f9b03fc4cfb9ebc75c78cbf58bafd7115594
   table,thead,tbody
         {
             /*background-color: #aaa;*/
@@ -78,6 +96,8 @@ export default{
         {
             display: block;
         } */
+=======
+>>>>>>> changes in images tag
    </style>  
 
         
