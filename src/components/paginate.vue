@@ -39,11 +39,8 @@ import axios from 'axios' //local directory
 //import jQuery from 'jquery'
 //import Paginate from 'vuejs-paginate'
 //let $ = jQuery
-import VueImg from 'v-img'
 export default{
-      components: {
-    VueImg
-  },
+      
     data(){
         return {
             paginate: [] ,
@@ -80,7 +77,6 @@ export default{
  </script>
  <style>
 
-<<<<<<< 26c3f9b03fc4cfb9ebc75c78cbf58bafd7115594
   table,thead,tbody
         {
             /*background-color: #aaa;*/
@@ -96,8 +92,7 @@ export default{
         {
             display: block;
         } */
-=======
->>>>>>> changes in images tag
+
    </style>  
 
         
