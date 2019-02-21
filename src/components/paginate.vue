@@ -25,11 +25,13 @@
       <td>{{paginate.modify}}</td>
     </tr>
     
-    
+   
 </tbody>
   
 </table>
 
+ <pagination class="paginate" :records="7" v-model="page" :per-page="3" @paginate="callback">
+</pagination>
 </div>
       
 </template>
@@ -39,14 +41,15 @@ import axios from 'axios' //local directory
 //import jQuery from 'jquery'
 //import Paginate from 'vuejs-paginate'
 //let $ = jQuery
-import VueImg from 'v-img'
+import Pagination from 'vue-pagination-2'
 export default{
       components: {
-    VueImg
-  },
+       Pagination
+      },
     data(){
         return {
             paginate: [] ,
+            page: 8
            
     
         }
@@ -57,15 +60,19 @@ export default{
                this.paginate =paginate.data
          })
          //.catch(error => console.log(error));
-
         /*axios.get('https://jsonplaceholder.typicode.com/todos/1').then(posts =>{
         
           console.log(posts.data);
               
            this.posts =posts.data
-
          });*/
     },
+    methods: {
+         callback: function(page) {
+      console.log(`Page ${page} was selected. Do something about it`);
+       }
+      }
+    }
    //   // $('#example').DataTable();
     // }
    //methods: {
@@ -76,29 +83,7 @@ export default{
      //}
   //}
   
-}         
+      
  </script>
- <style>
-
-<<<<<<< 26c3f9b03fc4cfb9ebc75c78cbf58bafd7115594
-  table,thead,tbody
-        {
-            /*background-color: #aaa;*/
-            width: 100px;
-        }
-        tbody
-        {
-            /*background-color: #ddd;*/
-         overflow: auto;
-        }
-       
-      /*  thead > tr, tbody
-        {
-            display: block;
-        } */
-=======
->>>>>>> changes in images tag
-   </style>  
-
+ 
         
-    

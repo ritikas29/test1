@@ -10,10 +10,10 @@
      </div>
 </template>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vuejs-paginator/2.0.0/vuejs-paginator.min.js"></script>
 
 <script>
-window.$ = require('jquery')
-window.JQuery = require('jquery')
+
     export default {
         name: 'App',
 
@@ -21,7 +21,7 @@ window.JQuery = require('jquery')
             return {
                 authenticated: false,
                 mockAccount: {
-                    username: "ria",
+                    username: "ritika",
                     password: "cool"
                 }
             }
