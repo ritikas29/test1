@@ -29,7 +29,8 @@
 </tbody>
   
 </table>
-
+<pagination class="paginate" :records="7" v-model="page" :per-page="3" @paginate="callback">
+</pagination>
 </div>
       
 </template>
@@ -39,12 +40,15 @@ import axios from 'axios' //local directory
 //import jQuery from 'jquery'
 //import Paginate from 'vuejs-paginate'
 //let $ = jQuery
+import Pagination from 'vue-pagination-2'
 export default{
-      
+      components: {
+       Pagination
+      },
     data(){
         return {
             paginate: [] ,
-           
+           page: 8
     
         }
     },
@@ -63,6 +67,12 @@ export default{
 
          });*/
     },
+    methods: {
+         callback: function(page) {
+      console.log(`Page ${page} was selected. Do something about it`);
+       }
+      }
+    
    //   // $('#example').DataTable();
     // }
    //methods: {
