@@ -85,7 +85,7 @@ form{
 label, 
 span{
     color: var(--primary);
-    margin-bottom: 0.1rem;
+    margin-bottom: 1px;
 }
 
 span{
@@ -120,6 +120,7 @@ button{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 button:hover{

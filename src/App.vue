@@ -2,7 +2,7 @@
     <div id="app">
         <div id="nav">
             <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>
-            <button type="button" class="btn btn-primary">logout</button>
+            <button type="button" class="btn btn-secondary">logout</button>
     
        </router-link>
         </div>
@@ -14,7 +14,6 @@
     
 
 <script>
-
     export default {
         name: 'App',
 
@@ -45,9 +44,10 @@
 <style >
      @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
-    body {
-        background-color: #F0F0F0;
-    }
+    :root{
+    --primary: #2667a8;
+    --secondary:#040333;
+}
     h1 {
         padding: 0;
         margin-top: 0;
@@ -61,8 +61,21 @@
         text-align: right;
     }
     button{
+    background: var(--primary);
+    color: #ffffff;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover{
+    background:  var(--secondary);
+    transition: 0.2s all ease;
+}
+    /*button{
     background:lightgreen; 
-    color: #6373cc;
+    color:#6373cc;
     padding: 12px 12px;
     border: none;
     border-radius: 4px;
@@ -73,5 +86,5 @@
 button:hover{
     background: purple;
     transition: 0.2s all ease;
-}
+}*/
 </style>

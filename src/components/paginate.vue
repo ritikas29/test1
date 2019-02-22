@@ -178,4 +178,66 @@
 </script>
 
 
-<style ></style>
+
+<style>
+
+ table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse; 
+  width: 100%;
+  
+  
+}
+thead{
+  font-family: Comic Sans MS;
+  font-size:20px;
+}
+
+tbody, thead {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(176, 217, 224);
+}
+tbody
+{font-family: Comic Sans MS;
+ font-size: 12px;
+ }
+tr:hover
+ {
+   background-color:rgb(180, 177, 177);
+   }
+  table,thead,tbody
+        {
+          border: 1px solid black;  
+          border-collapse: collapse;
+         width: 100px;
+         border-radius: 3px;
+        }
+        tbody
+        {
+            /*background-color: #ddd;*/
+         overflow: auto;
+        }
+        img{
+          vertical-align: middle;
+    border-style: none;
+    border-radius: 50px;
+
+}
+         
+table tr td{
+  padding: 10px 0;
+        
+}
+       
+      /*thead > tr, tbody
+        {
+            display: block;
+        } */
+   </style>  
+
+</style>
