@@ -98,7 +98,7 @@
                 />
             </section>
         </fetch-json>
-    </div>
+    </div>      
 </template>
 
 <script>
