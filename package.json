@@ -8,6 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@lossendae/vue-avatar": "^0.1.5",
+    "@lossendae/vue-table": "^0.1.8",
+    "accounting": "^0.4.1",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.0",
     "bootstrap-vue": "^2.0.0-rc.11",
@@ -36,7 +39,8 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.6",
-    "vuejs-paginator-axios": "^2.0.1"
+    "vuejs-paginator-axios": "^2.0.1",
+    "vuetable-2": "^1.7.5"
   },
   "eslintConfig": {
     "root": true,

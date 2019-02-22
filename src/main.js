@@ -7,9 +7,13 @@ import Register from "./views/register.vue"
 import SecureComponent from "./views/secure.vue"
 import BootstrapVue from 'bootstrap-vue'
 import VueImg from 'v-img';
-
+import VueTable from "@lossendae/vue-table";
+import VueTablePagination from "@lossendae/vue-table";
 Vue.use(VueImg);
+Vue.component("vue-table", VueTable);
+Vue.use("vue-table-pagination",VueTablePagination)
 //import paginate from "./components/paginate.vue"
+
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue);

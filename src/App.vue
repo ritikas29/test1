@@ -7,10 +7,11 @@
        </router-link>
         </div>
         <router-view @authenticated="setAuthenticated" />
+        
      </div>
 </template>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/vuejs-paginator/2.0.0/vuejs-paginator.min.js"></script>
+    
 
 <script>
 
