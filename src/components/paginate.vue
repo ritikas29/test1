@@ -7,39 +7,12 @@
         <div class="bg-light p-3 d-flex">
             <div>
                 <div class="btn-group mr-1" role="group">
-                    <button type="button" class="btn btn-outline-secondary"
-                            :class="{ active: filters.is_active === true }"
-                            @click="filters.is_active = true"
-                    ><i class="fa fa-circle mr-2 text-success"></i>Active
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary"
-                            :class="{ active: filters.is_active === false }"
-                            @click="filters.is_active = false"
-                    ><i class="fa fa-circle mr-2 text-danger"></i>Inactive
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary"
-                            :class="{ active: filters.is_active === 'all' }"
-                            @click="filters.is_active = 'all'"
-                    >All
-                    </button>
+                    
                 </div>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-secondary"
-                            :class="{ active: filters.modify === 'yes' }"
-                            @click="filters.modify = 'yes'"
-                    > <span class="badge badge-primary mr-2"></span>yes
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary"
-                            :class="{ active: filters.modify === 'no' }"
-                            @click="filters.modify = 'no'"
-                    > <span class="badge badge-primary mr-2"></span>no
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary"
-                            :class="{ active: filters.modify === 'all' }"
-                            @click="filters.modify = 'all'"
-                    >  <span class="badge badge-primary mr-2"></span>All
-                    </button>
+                  
                 </div>
+                
             </div>
             
         </div>
@@ -98,7 +71,8 @@
                 />
             </section>
         </fetch-json>
-    </div>      
+    </div>
+      
 </template>
 
 <script>
@@ -115,6 +89,10 @@
         data() {
             return {
                 columns: [{
+                  name:"sno",
+                  title:"sno"
+                },
+                 {
                     name: "images",
                     // You can either set sortable to true (which give the column name)
                     // or set the value to the string of your choice
@@ -125,14 +103,7 @@
                 }, {
                     name: "confidence",
                     title: "confidence",
-                }, {
-                    name: "modify",
-                    sortable: true,
-                },  {
-                    name: "is_active",
-                    title: "Is active",
-                    sortable: true,
-                }, ],
+                },  ],
                 filters: {
                     q: null,
                     modify: 'all',

@@ -12,32 +12,32 @@
         "sno": "1",
         "images": "https://wallpaperbrowse.com/media/images/soap-bubble-1958650_960_720.jpg",
         "trashfound":"yes",
-        "confidence":"no",
-        "modify":"yes"
+        "confidence":"55%"
+      
       },
       {
         "id":2,
         "sno": "2",
         "images": "https://picsum.photos/250/250/?image=54",
         "trashfound":"yes",
-        "confidence":"yes",
-        "modify":"no"
+        "confidence":"80%"
+        
       },
       {
         "id":3,
         "sno": "3",
         "images":"https://www.india.gov.in/sites/upload_files/npi/files/india-glance1.jpg",
         "trashfound":"yes",
-        "confidence":"no",
-        "modify":"yes"
+        "confidence":"70%"
+        
       },
       {
         "id":4,
         "sno": "4",
         "images":"https://www.india.gov.in/sites/upload_files/npi/files/india-glance1.jpg",
         "trashfound":"yes",
-        "confidence":"no",
-        "modify":"yes"
+        "confidence":"32%"
+        
       },
    
      {
@@ -45,24 +45,23 @@
         "sno": "5",
         "images":"https://thumbs.dreamstime.com/img/thumbsetc/thumb-audio.jpg",
         "trashfound":"yes",
-        "confidence":"no",
-        "modify":"yes"
+        "confidence":"34%"
+      
       },
       {
         "id":6,
         "sno": "6",
         "images":"https://www.india.gov.in/sites/upload_files/npi/files/india-glance1.jpg",
         "trashfound":"yes",
-        "confidence":"no",
-        "modify":"yes"
+        "confidence":"90%"
       },
       {
         "id":7,
         "sno": "7",
         "images":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMxjyhKy4A7IXs7gMucg6VPuqRbmY85p68c9UQvnPXtHj-lYn_",
         "trashfound":"yes",
-        "confidence":"no",
-        "modify":"yes"
+        "confidence":"88%"
+        
       }
   ],
   "profile": {
