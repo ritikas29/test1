@@ -56,6 +56,7 @@ export default {
             type: Number,
             required: true,
         },
+       
     },
     computed: {
         is_last_page() {

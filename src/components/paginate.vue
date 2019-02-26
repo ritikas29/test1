@@ -5,19 +5,11 @@
         </header>
 
         <div class="bg-light p-3 d-flex">
-            <div>
-                <div class="btn-group mr-1" role="group">
-                    
-                </div>
-                <div class="btn-group" role="group">
-                  
-                </div>
-                
-            </div>
+           
             
         </div>
 
-        <fetch-json url="/comments.json" :params="params">
+        <fetch-json url="" :params="params">
             <section class="p-3" slot-scope="{ rows: users, meta }">
                 <vue-table :columns="columns"
                            :rows="users"
@@ -25,39 +17,30 @@
                            :sort-direction="params.sort_direction"
                            @column:sort="onSort"
                 >
-                    <template slot-scope="{ row }" slot="images">
+                    <template slot-scope="{ row }" slot="image_thumbnail_url">
                         <div class="d-flex align-items-center">
-                            <div>
-                              <span><img v-img:group :src=" row.images" width="100" height="100"> </span>
+                            <div class="thumbnail">
+                              
+                              <span><img v-img:group :src=" row.image_url" width="100" height="100" class="thumbnail"> </span>
                             </div>
                             
                         </div>
                     </template>
 
-                    <template slot-scope="{ row }" slot="trashfound">
+                    <template slot-scope="{ row }" slot="Trash_found">
                         <div class="d-flex flex-column">
                             <div>
-                                <span>{{ row.trashfound }}</span>
+                                <span>{{ row.Trash_found }}</span>
                             </div>
                             
                         </div>
                     </template>
 
-                    <template slot-scope="{ row }" slot="confidence">
-                        {{ row.confidence}}
+                    <template slot-scope="{ row }" slot="Confidence">
+                        {{ row.Confidence}}
                     </template>
 
-                    <template slot-scope="{ row }" slot="modify">
-                        <span class="badge badge-primary" v-if="row.modify === 'yes'">yes</span>
-                        <span class="badge badge-pink" v-if="row.modify !== 'yes'"> no</span>
-                    </template>
-
-                    <template slot-scope="{ row }" slot="is_active">
-                        <div class="d-flex align-items-center">
-                            <i class="fa fa-circle mr-2" :class="[row.is_active ? 'text-success' : 'text-danger']"></i>
-                            <small class="text-uppercase">{{ row.is_active ? 'Active' : 'Inactive' }}</small>
-                        </div>
-                    </template>
+                   
 
                    
                 </vue-table>
@@ -89,20 +72,20 @@
         data() {
             return {
                 columns: [{
-                  name:"sno",
-                  title:"sno"
+                  name:"S.No",
+                  title:"S.No"
                 },
                  {
-                    name: "images",
+                    name: "image_thumbnail_url",
                     // You can either set sortable to true (which give the column name)
                     // or set the value to the string of your choice
-                    sortable: 'images',
+                    sortable: 'image_thumbnail_url',
                 }, {
-                    name: "trashfound",
-                    sortable: 'trashfound',
+                    name: "Trash_found",
+                    sortable: 'Trash_found',
                 }, {
-                    name: "confidence",
-                    title: "confidence",
+                    name: "Confidence",
+                    title: "Confidence",
                 },  ],
                 filters: {
                     q: null,
@@ -240,4 +223,4 @@ table tr td{
         } */
    </style>  
 
-</style>
+

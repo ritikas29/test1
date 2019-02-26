@@ -76,7 +76,7 @@ export default {
     }
   },
   created() {
-    fetch("http://localhost:3000/comments")
+    fetch("http://localhost:3000/result")
       .then(response => response.json())
       .then(json => {
           console.log("JSON IS", json)
