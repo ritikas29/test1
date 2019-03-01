@@ -4,10 +4,10 @@
             
         </header>
 
-        <div class="bg-light p-3 d-flex">
+      <!--  <div class="bg-light p-3 d-flex"> 
            
             
-        </div>
+        </div>-->
 
         <fetch-json url="" :params="params">
             <section class="p-3" slot-scope="{ rows: users, meta }">
@@ -165,7 +165,7 @@
 <style>
 
  table {
-  font-family: arial, sans-serif;
+  font-family:Comic Sans MS ;
   border-collapse: collapse; 
   width: 100%;
   
@@ -173,7 +173,8 @@
 }
 thead{
   font-family: Comic Sans MS;
-  font-size:20px;
+  font-size:13px;
+  color:black;
 }
 
 tbody, thead {
@@ -182,23 +183,26 @@ tbody, thead {
   padding: 8px;
 }
 
-tr:nth-child(odd) {
-  background-color: rgb(176, 217, 224);
+tr:nth-child(even) {
+  background-color: rgb(240, 245, 245);
 }
 tbody
-{font-family: Comic Sans MS;
- font-size: 12px;
+{font-family: 'Roboto', sans-serif;
+ font-size: 13px;
  }
 tr:hover
  {
-   background-color:rgb(180, 177, 177);
+     transition: box-shadow .3s;
+  /* background-color:rgb(248, 244, 244); */
+   box-shadow: 0 0 11px rgba(33,33,33,.2); 
    }
   table,thead,tbody
         {
-          border: 1px solid black;  
+         /* border: 1px solid black;  
           border-collapse: collapse;
-         width: 100px;
-         border-radius: 3px;
+         border-radius: 3px;*/
+          width: 100px;
+        
         }
         tbody
         {
@@ -208,19 +212,16 @@ tr:hover
         img{
           vertical-align: middle;
     border-style: none;
-    border-radius: 50px;
+    
 
 }
          
 table tr td{
   padding: 10px 0;
+  border-bottom: 1px solid #fff;
         
 }
        
-      /*thead > tr, tbody
-        {
-            display: block;
-        } */
-   </style>  
+       </style>  
 
 

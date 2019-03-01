@@ -116,15 +116,17 @@ import paginate from "../components/paginate.vue"
 }
 body {
   background: transparent;
+  width: 100%;
+  height: 100%;
 }
-.file{
+/*.file{
   background:rgb(176, 217, 224);
   display: flex;
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #b8b9bb;
     border-radius: 2px; 
-}
+} */
 label{
   
       display: block;
@@ -133,6 +135,7 @@ label{
       position: relative;
       float:left;
       width:80%;
+      height: 100%;
 }
    #secure {
        /* padding: 200px; */
