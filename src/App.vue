@@ -54,7 +54,7 @@
 
     }
     #app {
-        width: 1024px;
+       width: 900px; 
         margin: auto;
         height: 100%;
     }
@@ -63,7 +63,7 @@
         text-align: right;
     }
     button{
-    background: var(--primary);
+    background: blue;
     color: #ffffff;
     padding: 12px 12px;
     border: none;

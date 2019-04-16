@@ -9,6 +9,7 @@ import BootstrapVue from 'bootstrap-vue'
 import VueImg from 'v-img';
 import VueTable from "@lossendae/vue-table";
 import VueTablePagination from "@lossendae/vue-table";
+import connect from "./views/connect.vue";
 Vue.use(VueImg);
 Vue.component("vue-table", VueTable);
 Vue.use("vue-table-pagination",VueTablePagination)
@@ -41,6 +42,11 @@ Vue.use(VueRouter);
           name: "secure",
           component:  SecureComponent
       },
+      {
+          path:"/connect",
+          name:"connect",
+          component:connect
+      }
      // {
          // path:"/paginate",
           //name: "paginate",

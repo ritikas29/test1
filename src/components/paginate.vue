@@ -21,7 +21,7 @@
                         <div class="d-flex align-items-center">
                             <div class="thumbnail">
                               
-                              <span><img v-img:group :src=" row.image_url" width="100" height="100" class="thumbnail"> </span>
+                            <span><img v-img:group :src=" row.image_url" width="100" height="100" class="thumbnail"> </span>
                             </div>
                             
                         </div>
@@ -165,43 +165,56 @@
 <style>
 
  table {
-  font-family:Comic Sans MS ;
-  border-collapse: collapse; 
-  width: 100%;
-  
+    font-family: sans-serif;
+    border: 0; 
+    width: 100%;
   
 }
 thead{
-  font-family: Comic Sans MS;
-  font-size:13px;
-  color:black;
-}
+    font-family: sans-serif;
+    font-size:14px;
+    color:#0000ff;
+
+    }
+    a{
+        color:#0000ff;
+text-decoration: inherited !important;
+
+    }
+
+a:hover{
+    color:#0000ff !important;
+    }
 
 tbody, thead {
-  border: 1px solid #dddddd;
-  text-align: center;
-  padding: 8px;
+    /* border: 1px solid #dddddd; */
+     text-align: left;
+     padding: 8px;
 }
 
-tr:nth-child(even) {
+/*tr:nth-child(even) {
   background-color: rgb(240, 245, 245);
-}
+}*/
+
 tbody
-{font-family: 'Roboto', sans-serif;
- font-size: 13px;
+{
+    font-family: sans-serif;
+    font-size: 13px;
  }
-tr:hover
+tr
+:hover
  {
-     transition: box-shadow .3s;
-  /* background-color:rgb(248, 244, 244); */
-   box-shadow: 0 0 11px rgba(33,33,33,.2); 
-   }
+     transition: box-shadow .5s;
+    /* box-shadow: 0 0 11px rgba(33,33,33,.2); */
+   
+     }
   table,thead,tbody
         {
          /* border: 1px solid black;  
           border-collapse: collapse;
          border-radius: 3px;*/
           width: 100px;
+          height: 40px;
         
         }
         tbody
@@ -221,7 +234,6 @@ table tr td{
   border-bottom: 1px solid #fff;
         
 }
-       
-       </style>  
+ </style>  
 
 

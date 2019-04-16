@@ -1,9 +1,39 @@
 <template>
-    <div id="secure">
-    <div class="container">
+    <div id="app">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+crossorigin="anonymous">  
+<div class="nav flex-column nav-pills" 
+id="v-pills-tab" 
+role="tablist"
+ aria-orientation="vertical">
+<router-link class="nav-link "
+ id="v-pills-home-tab" 
+ data-toggle="pill"  
+ role="tab"
+  aria-controls="v-pills-home" 
+  aria-selected="true"
+   :to="'/secure'"><i class="fa fa-home"></i> Home</router-link>
+<router-link class="nav-link" 
+ id="v-pills-profile-tab" 
+ data-toggle="pill" 
+  role="tab" 
+  aria-controls="v-pills-profile" aria-selected="false" 
+  :to="'/Connect'"><i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link></div>
+<div class="tab-content" 
+id="v-pills-tabContent">
+ <div  id="v-pills-home"
+  role="tabpanel" 
+  aria-labelledby="v-pills-home-tab">
+   <div class="tab-pane fade" 
+   id="v-pills-profile" 
+   role="tabpanel"
+    aria-labelledby="v-pills-profile-tab">  
+      </div>
+</div>
 
-
-    <div class="file"> <!--btn btn-lg btn-primary-->
+ <div class="container">
+<div class="file"> <!--btn btn-lg btn-primary-->
   <!-- <button type="button" class="btn btn-lg btn-primary" disabled>Upload</button><br/>-->
    <!--input type="file" @change="file"/>
        <button type="button" class="btn btn-secondary" v-on:click="submitFiles()" >SUBMIT</button-->
@@ -24,7 +54,7 @@
           <paginate></paginate>
 
     </div>
-    
+    </div>
   </div>
   </div>
 </template>
@@ -103,17 +133,51 @@ import paginate from "../components/paginate.vue"
           
 
 </script>
-
 <style  scoped>
 
-*{
-   /* box-sizing: border-box;*/
-    margin-bottom:25px;
-      
-   /* width: 100%; */
+.nav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #e6e6e6;
+  overflow-x: hidden;
+  /*padding-top: 20px;*/
+  line-height:1.5;
+  margin:0 auto;
+  padding:45px 0px;
   
-  
+
 }
+
+.nav a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #0000ff;
+  display: block;
+  float:left;
+  padding:5px 10px;
+ border-radius: 0;
+}
+
+.nav a:hover {
+  background-color: white;
+  color: #262626;
+  box-shadow: 0 5px 1px lightgrey;
+  }
+
+.main {
+  margin-left: 100px; /* Same as the width of the sidenav */
+} 
+
+/*@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}*/
+
+
 body {
   background: transparent;
   width: 100%;
@@ -167,7 +231,7 @@ label{
     vertical-align: top;
     border-radius: 4px;
     cursor: pointer;
-    margin-left:30px;
+    margin:10px;
     float:right;
     top: 70%;
     left: 50%; 
@@ -178,8 +242,8 @@ button:hover{
     transition: 0.2s all ease;
 } */
 :root{
-    --primary: #021324;
-    --secondary: #0d3a4d;
+    --primary: #182c41;
+    --secondary: #117aa7;
 }
 button{
     background: var(--primary);
@@ -188,10 +252,11 @@ button{
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    margin: 10px;
+    margin-top: 25px;
     height:34px;
     line-height: 34px;
-    float: right;
+    float: left;
+    margin-right:15px;
     }
 
 button:hover{
