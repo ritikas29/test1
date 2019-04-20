@@ -1,3 +1,4 @@
+
 <template>
     <div class="register">
         <div class="image">
@@ -52,7 +53,7 @@ export default {
          }*/
          methods: {
              signin() {
-                  axios.post('http://localhost:3000/posts',this.input1)
+                  axios.post('http://192.168.15.212:8000/register',this.input1)
                   .then(response => {
                       console.log(response);
                       // let token= response.data.username.api_token;
@@ -60,11 +61,10 @@ export default {
                     
                   });
          },
-         mounted() {
-             
-         }
+        
      }
 }
 </script>
 <style src="./register.css" scoped>
 </style>
+>>>>>>> Stashed changes

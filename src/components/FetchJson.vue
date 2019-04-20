@@ -1,11 +1,14 @@
+
 <script>
+
 export default {
   props: ["url", "params"],
   data() {
     return {
       users: [],
       meta: null,
-      filters: null
+      filters: null,
+      
     };
   },
   computed: {
@@ -16,7 +19,6 @@ export default {
       if (!this.users) {
         return [];
       }
-
       const me = this;
       return this.users.sort((a, b) => {
         if (me.params.sort_direction === "asc") {
@@ -24,7 +26,6 @@ export default {
           if (a[me.params.sort_by] > b[me.params.sort_by]) return 1;
           return 0;
         }
-
         if (b[me.params.sort_by] < a[me.params.sort_by]) return -1;
         if (b[me.params.sort_by] > a[me.params.sort_by]) return 1;
         return 0;
@@ -39,7 +40,6 @@ export default {
       if (!this.params.hasOwnProperty("filters")) {
         return this.sorted_rows;
       }
-
       const me = this;
       return this.sorted_rows.filter(row => {
         let keep = true;
@@ -75,13 +75,45 @@ export default {
       return this.filtered_rows.length;
     }
   },
-  created() {
-    fetch("http://localhost:3000/result")
+  fetchdata() {
+    console.log("ftechata current page", this.params)
+      fetch(`http://localhost:3000/result?_page=${this.params.page}&_limit=${this.params.limit}`)
       .then(response => response.json())
       .then(json => {
           console.log("JSON IS", json)
         this.users = json;
       });
+  },
+  created() {
+    console.log("current page", this.params)
+      fetch(`http://localhost:3000/result?_page=${this.params.page}&_limit=${this.params.limit}`)
+      .then(response => response.json())
+      .then(json => {
+          console.log("JSON IS", json)
+        this.users = json;
+      });
+      /*var url= "http://192.168.15.71:8000/extract/features?"+ $.params({skip:5,limit:5})
+      fetch(url)
+       .then(response => response.json())
+      .then(json => {
+          console.log("JSON IS", json)
+        this.users = json;
+      });*/
+      /*let token = localStorage.getItem("token")
+       fetch("http://192.168.15.212:8000/extract/features?skip=5&limit=5",
+        {
+          headers: { Authorization: localStorage.getItem('token'),
+          'X-AUTH':'localStorage.token',
+              'authorization':token,
+              'token':token, }
+       })
+      .then(response => response.json())
+      .then(json => {
+          console.log("JSON IS", json)
+        this.users = json.result;
+        
+      });*/
+    //http://192.168.15.71:8000/extract/features?skip=5&limit=5
   },
   render() {
     return this.$scopedSlots.default({
@@ -93,3 +125,4 @@ export default {
   }
 };
 </script>
+

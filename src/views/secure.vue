@@ -43,17 +43,8 @@ id="v-pills-tabContent">
       </label>
       
       <button class="btn btn-secondary" v-on:click="submitFiles()">Submit</button>
-    <button type="button" class="btn btn-secondary" v-on:click="showData()" >Result</button>
     </div>
     <br/>
-      
-      <div v-if="result" >
-        
-        
-        
-          <paginate></paginate>
-
-    </div>
     </div>
   </div>
   </div>
@@ -61,22 +52,22 @@ id="v-pills-tabContent">
 
 <script>
 import axios from "axios"
-import paginate from "../components/paginate.vue"
+//import paginate from "../components/paginate.vue"
 
     export default {
         
         name: 'Secure',
-        components:{ 
-            Paginate: paginate
+        //components:{ 
+          //  Paginate: paginate
         
-          },
+          //},
         data() {
             return {
-                result : false,
-                showData(){
-                    this.result = true;
-                    alert('sucessfully 1');
-                },
+              //  result : false,
+                //showData(){
+                  //  this.result = true;
+                    //alert('sucessfully 1');
+                //},
                  files: ''
             }
         },
@@ -105,10 +96,14 @@ import paginate from "../components/paginate.vue"
         /*
           Make the request to the POST /multiple-files URL
         */
-        axios.post( 'http://192.168.15.230:8000/upload',
+       let token = localStorage.getItem("token")
+        axios.post( 'http://192.168.15.212:8000/upload',
           formData,
           {
             headers: {
+              'X-AUTH':'localStorage.token',
+              'authorization':token,
+              'token':token,
                 'Content-Type': 'multipart/form-data'
             }
           }
@@ -264,3 +259,5 @@ button:hover{
     transition: 0.2s all ease;
 }
 </style>
+
+       

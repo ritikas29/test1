@@ -1,15 +1,13 @@
+
 <template>
     <div>
         <header class="p-3 mt-2">
             
         </header>
-
-      <!--  <div class="bg-light p-3 d-flex"> 
-           
-            
+      <!--  <div class="bg-light p-3 d-flex">     
         </div>-->
 
-        <fetch-json url="" :params="params">
+        <fetch-json url="" :params="params" @fetch:data="fetchdata()">
             <section class="p-3" slot-scope="{ rows: users, meta }">
                 <vue-table :columns="columns"
                            :rows="users"
@@ -17,7 +15,7 @@
                            :sort-direction="params.sort_direction"
                            @column:sort="onSort"
                 >
-                    <template slot-scope="{ row }" slot="image_thumbnail_url">
+                 <template slot-scope="{ row }" slot="image_thumbnail_url">
                         <div class="d-flex align-items-center">
                             <div class="thumbnail">
                               
@@ -27,7 +25,7 @@
                         </div>
                     </template>
 
-                    <template slot-scope="{ row }" slot="Trash_found">
+                <template slot-scope="{ row }" slot="Trash_found">
                         <div class="d-flex flex-column">
                             <div>
                                 <span>{{ row.Trash_found }}</span>
@@ -36,15 +34,10 @@
                         </div>
                     </template>
 
-                    <template slot-scope="{ row }" slot="Confidence">
+                <template slot-scope="{ row }" slot="Confidence">
                         {{ row.Confidence}}
                     </template>
-
-                   
-
-                   
                 </vue-table>
-
                 <vue-table-pagination
                         :items-per-page="params.limit"
                         :total-items="meta ? meta.total_items : 0"
@@ -77,11 +70,13 @@
                 },
                  {
                     name: "image_thumbnail_url",
+                    title:"Image",
                     // You can either set sortable to true (which give the column name)
                     // or set the value to the string of your choice
-                    sortable: 'image_thumbnail_url',
+                    sortable: 'Image_thumbnail_url',
                 }, {
                     name: "Trash_found",
+                    title:"Trash Found",
                     sortable: 'Trash_found',
                 }, {
                     name: "Confidence",
@@ -94,7 +89,7 @@
                 },
                 total_items: 0,
                 params: {
-                    limit: 4,
+                    limit: 5,
                     sort_by: 'trashfound',
                     sort_direction: 'asc',
                     page: 1,
@@ -102,7 +97,6 @@
             }
         },
         methods: {
-            
             
             /**
              * VueTable component event
@@ -116,6 +110,7 @@
              */
             onPaginationChange(page) {
                 this.params.page = page
+                 this.$emit('fetch:data', page)
             },
             /**
              * Apply filters to params given to the fetchJson component
@@ -130,7 +125,6 @@
                     if (typeof this.filters[key] === 'string' && this.filters[key].length > 0) {
                         filters[key] = this.filters[key]
                     }
-
                     if (typeof this.filters[key] === 'boolean') {
                         filters[key] = this.filters[key]
                     }

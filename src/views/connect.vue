@@ -32,9 +32,78 @@ id="v-pills-tabContent">
       </div>
       </div>
       </div>
-      </div>
-      </template>
-
+       <p> list of files </p>
+          <table class="table table-bordered">
+              <thead>
+                   <tr>
+                       <th scope="col">#</th>
+                        <th scope="col">Filename</th>
+                        <th scope="col">Download</th>
+                        <th scope="col">Result</th>
+                      </tr>
+              </thead>
+           <tbody>
+              <tr v-for="connect in connect" :key="connect.id">
+                                <td>{{connect.sno}}</td> 
+                                <td>{{connect.filename}}</td>
+                                <td><button type="button" class="btn btn-dark" v-on:click="download()" >Download</button></td>
+                                <td> 
+                                   <router-link to="/result">
+                                   <button type="button" class="btn btn-secondary"  >Result
+                                     
+                                      </button>
+                                      
+                                     </router-link>  
+                                 </td>
+              </tr> 
+             </tbody>
+           </table>
+           
+</div>
+</template>
+<script>
+import axios from 'axios'
+//import paginate from "../components/paginate.vue"
+export default {
+ // components:{ 
+   //         Paginate: paginate
+        
+     //     },
+    data() {  
+        return {
+       //result : false,
+       // showData(){
+         //   this.result = true;
+             //alert('got it');
+         //},
+         connect:[],
+         url:''
+    }
+    },
+    created() {
+      axios.get('http://localhost:3000/filenames').then(connect =>{
+        this.connect = connect.data
+      })
+    },
+    methods: {
+      download() {
+         let token = localStorage.getItem("token")
+           axios({
+                    url: 'http://localhost:3000/filenames',
+                    method: 'GET',
+                    responseType: 'blob', // important//The response is a Blob object containing the binary data.
+                     }).then((response) => {
+                    const url = window.URL.createObjectURL(new Blob([response.data]));
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.setAttribute('download', 'file.csv'); //or any other extension
+                    document.body.appendChild(link);
+                    link.click();
+                  });        
+      }
+    }
+}
+</script>    
 <style  scoped>
   
   .nav {

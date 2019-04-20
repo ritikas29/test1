@@ -60,13 +60,16 @@ export default {
     },
     computed: {
         is_last_page() {
+            console.log("[MIXIN]",this)
             return this.currentPage === this.total_pages
         },
         is_first_page() {
             return this.currentPage === 1
         },
         total_pages() {
-            let total_pages = this.itemsPerPage < 1 ? 1 : Math.ceil(this.totalItems / this.itemsPerPage)
+            var myTotalPages = 20
+            let total_pages = this.itemsPerPage < 1 ? 1 : Math.ceil(myTotalPages / this.itemsPerPage)
+            console.log("[MIXIN]Returning total pages",total_pages)
             return Math.max(total_pages || 0, 1)
         },
         from() {
@@ -165,6 +168,7 @@ export default {
     },
     methods: {
         selectPage(page) {
+            console.log("[MIXIN]Select page called for page",page)
             this.$emit('pagination:change', page)
         },
         isDefined(value) {
