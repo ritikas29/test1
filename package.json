@@ -12,8 +12,8 @@
     "@lossendae/vue-table": "^0.1.8",
     "accounting": "^0.4.1",
     "axios": "^0.18.0",
-    "bootstrap": "^4.3.0",
-    "bootstrap-vue": "^2.0.0-rc.11",
+    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap-vue": "^2.0.0-rc.18",
     "jquery": "^3.3.1",
     "mdbvue": "^5.1.0",
     "pagination": "^0.4.6",
@@ -24,6 +24,7 @@
     "vue-good-table": "^2.16.1",
     "vue-image-lightbox": "^6.1.2",
     "vue-pagination-2": "^2.0.3",
+    "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2",
     "vuejs-paginate": "^2.1.0",
     "vuejs-uib-pagination": "^1.0.6"

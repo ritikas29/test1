@@ -1,233 +1,97 @@
-
 <template>
-    <div>
-        <header class="p-3 mt-2">
-            
-        </header>
-      <!--  <div class="bg-light p-3 d-flex">     
-        </div>-->
-
-        <fetch-json url="" :params="params" @fetch:data="fetchdata()">
-            <section class="p-3" slot-scope="{ rows: users, meta }">
-                <vue-table :columns="columns"
-                           :rows="users"
-                           :sort-by="params.sort_by"
-                           :sort-direction="params.sort_direction"
-                           @column:sort="onSort"
-                >
-                 <template slot-scope="{ row }" slot="image_thumbnail_url">
-                        <div class="d-flex align-items-center">
-                            <div class="thumbnail">
-                              
-                            <span><img v-img:group :src=" row.image_url" width="100" height="100" class="thumbnail"> </span>
-                            </div>
-                            
-                        </div>
-                    </template>
-
-                <template slot-scope="{ row }" slot="Trash_found">
-                        <div class="d-flex flex-column">
-                            <div>
-                                <span>{{ row.Trash_found }}</span>
-                            </div>
-                            
-                        </div>
-                    </template>
-
-                <template slot-scope="{ row }" slot="Confidence">
-                        {{ row.Confidence}}
-                    </template>
-                </vue-table>
-                <vue-table-pagination
-                        :items-per-page="params.limit"
-                        :total-items="meta ? meta.total_items : 0"
-                        :current-page="params.page"
-                        :show-refresh-button="false"
-                        @pagination:change="onPaginationChange"
-                />
-            </section>
-        </fetch-json>
-    </div>
-      
+<div id="app" class="container">
+<div class="row">
+<div class="col">
+<vue-good-table
+mode="remote"
+:columns="columns"
+:rows="rows"
+:totalRows="totalRecords"
+:pagination-options="{ enabled: true }"
+@on-page-change="onPageChange"
+@on-sort-change="onSortChange"
+@on-per-page-change="onPerPageChange" >
+<template slot="table-row" slot-scope="props">
+<span v-if="props.column.field === 'original'">
+<a v-bind:href="props.row.original">{{props.row.original }}</a>
+</span>
+<span v-else>
+    <span v-if="props.column.field === 'image_thumbnail_url'">  
+         <span><img v-img:group :src="props.formattedRow[props.column.field]" width="100" height="100" class="thumbnail"> </span>
+    </span>
+    <span v-else>
+        {{ props.formattedRow[props.column.field] }}
+    </span>
+</span>
+</template>
+</vue-good-table>
+</div>
+</div>
+</div>
 </template>
 
 <script>
-    import FetchJson from './FetchJson'
-    //import VueAvatar from '@lossendae/vue-avatar'
-    //import accounting from 'accounting'
-    import VueTablePagination from "./general/vueTablePagination";
+import { SERVER_API } from './application.js';
+import { VueGoodTable } from 'vue-good-table';
+import 'vue-good-table/dist/vue-good-table.css'
+export default {
+name: "StatisticsPage",
+components: { VueGoodTable },
+data: function() {
+    console.log("props are", this.props)
+return {
+columns: [
+{ label: 'S.No',field:'S_No' },
+{ label: 'Image',field:'image_thumbnail_url' },
+{ label: 'Trash_found', field: 'Trash_found' },
+{ label: 'Confidence',field:'Confidence'}
+],
+totalRecords: 0,
+serverParams: {
+_page: 1,
 
-    import Vue from 'vue'
+},
+rows: [],
+}
+},
+methods: {
+updateParams(newProps) {
+this.serverParams = Object.assign({}, this.serverParams, newProps);
+},
+onPageChange(params) {
+this.updateParams({_page: params.currentPage});
+this.loadItems();
+},
+onPerPageChange(params) {
+this.updateParams({perPage: params.currentPerPage});
+this.loadItems();
+},
+onSortChange(params) {
+console.log(params);
+this.updateParams({
+type: params[0].type,
+field: params[0].field,
+});
+this.loadItems();
+},
+loadItems() {
+    console.log("server params are",this.serverParams)
+SERVER_API.get('http://192.168.15.224:8000/extract/features', {params: this.serverParams }).then(response => {
+console.log(response);
+//If there totalresults count is 40
+this.totalRecords =response.data.result.number_of_rows;
+this.rows = response.data.result.result;
+});
+}
+}
+}
 
-    export default {
-        name: 'App',
-        components: { FetchJson,VueTablePagination },
-        data() {
-            return {
-                columns: [{
-                  name:"S.No",
-                  title:"S.No"
-                },
-                 {
-                    name: "image_thumbnail_url",
-                    title:"Image",
-                    // You can either set sortable to true (which give the column name)
-                    // or set the value to the string of your choice
-                    sortable: 'Image_thumbnail_url',
-                }, {
-                    name: "Trash_found",
-                    title:"Trash Found",
-                    sortable: 'Trash_found',
-                }, {
-                    name: "Confidence",
-                    title: "Confidence",
-                },  ],
-                filters: {
-                    q: null,
-                    modify: 'all',
-                    is_active: 'all',
-                },
-                total_items: 0,
-                params: {
-                    limit: 5,
-                    sort_by: 'trashfound',
-                    sort_direction: 'asc',
-                    page: 1,
-                },
-            }
-        },
-        methods: {
-            
-            /**
-             * VueTable component event
-             */
-            onSort({ sortBy, sortDirection }) {
-                this.params.sort_by = sortBy
-                this.params.sort_direction = sortDirection
-            },
-            /**
-             * VueTablePagination component event
-             */
-            onPaginationChange(page) {
-                this.params.page = page
-                 this.$emit('fetch:data', page)
-            },
-            /**
-             * Apply filters to params given to the fetchJson component
-             */
-            applyFilters() {
-                let filters = {}
-                Object.keys(this.filters).forEach(key => {
-                    if (this.filters[key] === 'all') {
-                        return
-                    }
-
-                    if (typeof this.filters[key] === 'string' && this.filters[key].length > 0) {
-                        filters[key] = this.filters[key]
-                    }
-                    if (typeof this.filters[key] === 'boolean') {
-                        filters[key] = this.filters[key]
-                    }
-                })
-
-                // We use Vue.set & Vue.delete to make the filters key observable
-                if (Object.keys(filters).length > 0) {
-                    Vue.set(this.params, 'filters', filters)
-                } else {
-                    if (this.params.hasOwnProperty('filters')) {
-                        Vue.delete(this.params, 'filters')
-                    }
-                }
-            },
-        },
-        /**
-         * Watch filters data property for any change
-         */
-        watch: {
-            filters: {
-                handler() {
-                    this.applyFilters()
-                },
-                deep: true,
-            },
-        },
-    }
+/*hings to integrate real api
+- Replace http://localhost:3000/result with real api
+- Afer ? marks params will  stay in serverParams.... at current _page define the skip and _limit per page results i.e 10
+- Assign total no of results in this.totalRecords at current its 40 which means I have 40 total entries in my DB
+*/
 </script>
 
-
-
-<style>
-
- table {
-    font-family: sans-serif;
-    border: 0; 
-    width: 100%;
-  
-}
-thead{
-    font-family: sans-serif;
-    font-size:14px;
-    color:#0000ff;
-
-    }
-    a{
-        color:#0000ff;
-text-decoration: inherited !important;
-
-    }
-
-a:hover{
-    color:#0000ff !important;
-    }
-
-tbody, thead {
-    /* border: 1px solid #dddddd; */
-     text-align: left;
-     padding: 8px;
-}
-
-/*tr:nth-child(even) {
-  background-color: rgb(240, 245, 245);
-}*/
-
-tbody
-{
-    font-family: sans-serif;
-    font-size: 13px;
- }
-tr
-:hover
- {
-     transition: box-shadow .5s;
-    /* box-shadow: 0 0 11px rgba(33,33,33,.2); */
-   
-     }
-  table,thead,tbody
-        {
-         /* border: 1px solid black;  
-          border-collapse: collapse;
-         border-radius: 3px;*/
-          width: 100px;
-          height: 40px;
-        
-        }
-        tbody
-        {
-            /*background-color: #ddd;*/
-         overflow: auto;
-        }
-        img{
-          vertical-align: middle;
-    border-style: none;
-    
-
-}
-         
-table tr td{
-  padding: 10px 0;
-  border-bottom: 1px solid #fff;
-        
-}
- </style>  
-
-
+<style scoped>
+</style>

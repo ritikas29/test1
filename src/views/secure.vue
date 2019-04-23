@@ -97,7 +97,7 @@ import axios from "axios"
           Make the request to the POST /multiple-files URL
         */
        let token = localStorage.getItem("token")
-        axios.post( 'http://192.168.15.212:8000/upload',
+        axios.post( 'http://192.168.15.224:8000/upload',
           formData,
           {
             headers: {

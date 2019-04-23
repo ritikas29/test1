@@ -16,23 +16,24 @@
   "filenames": [
     {
       "sno":1,
-      "filename":"testinnnng.csv",
-      "download":"/home/ritika/Downloads/garbage.xlsx"
+      "filename":"testinnnng.csv"
     },
     {   "sno":2,
-        "filename":"testingg.xls",
-        "download":"/home/ritika/Downloads/garbage.xlsx"
+        "filename":"testingg.xls"
+        
 
     },
     {
       "sno":3,
-      "filename":"testing3.csv",
-      "download":"/home/ritika/Downloads/garbage.xlsx"
+      "filename":"testing3.csv"
     },
     {
       "sno":4,
-      "filename":"testing.csv",
-      "download":"/home/ritika/Downloads/garbage.xlsx"
+      "filename":"testing.csv"
+    },
+    {
+      "sno":5,
+      "filename":"testing11.csv"
     }
   ],
   "result": [
@@ -78,7 +79,7 @@
     },
     {
       "Confidence": 67.0230636597,
-      "S.No": 1,
+      "S.No": 6,
       "Trash_found": "True",
       "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Fa35246a7-d2b1-45a9-a628-ddad1ba3efc3.jpeg",
       "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/4ff63b0e629e4547a9cfa24c39362bbe.jpeg",
@@ -86,7 +87,7 @@
     },
     {
       "Confidence": 85.931388855,
-      "S.No": 2,
+      "S.No": 7,
       "Trash_found": "False",
       "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F6291d7d0-5e43-4a0b-b29f-4e557e14a951.jpeg",
       "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/916057cbf5ca424aa036659536e3bc98.jpeg",
@@ -94,24 +95,144 @@
     },
     {
       "Confidence": 97.3189086914,
-      "S.No": 3,
-      "Trash_found": "True",
+      "S.No": 8,
+      "Trash_found": "a",
       "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F0e87afe2-69c7-49a2-a473-79e23fbf8975.jpeg",
       "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg",
       "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg"
     },
     {
       "Confidence": 83.218963623,
-      "S.No": 4,
-      "Trash_found": "True",
+      "S.No": 9,
+      "Trash_found": "b",
       "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/ceeff473c2934ef3afe5d0b33f88990b.jpeg",
       "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Ff90bec99-9add-497d-92c7-6f8b94730fd1.jpeg",
       "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_ceeff473c2934ef3afe5d0b33f88990b.jpeg"
     },
     {
       "Confidence": 75.135635376,
-      "S.No": 5,
-      "Trash_found": "True",
+      "S.No": 10,
+      "Trash_found": "c",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F7f2a683b-9e5a-456b-aacc-35ae2e59ddee.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/a225c9d171e14d23b43d2e4ba3f6faa6.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_a225c9d171e14d23b43d2e4ba3f6faa6.jpeg'"
+    },
+    {
+      "Confidence": 67.0230636597,
+      "S.No": 11,
+      "Trash_found": "d",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Fa35246a7-d2b1-45a9-a628-ddad1ba3efc3.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/4ff63b0e629e4547a9cfa24c39362bbe.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_4ff63b0e629e4547a9cfa24c39362bbe.jpeg"
+    },
+    {
+      "Confidence": 85.931388855,
+      "S.No": 12,
+      "Trash_found": "e",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F6291d7d0-5e43-4a0b-b29f-4e557e14a951.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/916057cbf5ca424aa036659536e3bc98.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_916057cbf5ca424aa036659536e3bc98.jpeg"
+    },
+    {
+      "Confidence": 97.3189086914,
+      "S.No": 13,
+      "Trash_found": "f",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F0e87afe2-69c7-49a2-a473-79e23fbf8975.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg"
+    },
+    {
+      "Confidence": 83.218963623,
+      "S.No": 14,
+      "Trash_found": "g",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/ceeff473c2934ef3afe5d0b33f88990b.jpeg",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Ff90bec99-9add-497d-92c7-6f8b94730fd1.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_ceeff473c2934ef3afe5d0b33f88990b.jpeg"
+    },
+    {
+      "Confidence": 75.135635376,
+      "S.No": 15,
+      "Trash_found": "h",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F7f2a683b-9e5a-456b-aacc-35ae2e59ddee.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/a225c9d171e14d23b43d2e4ba3f6faa6.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_a225c9d171e14d23b43d2e4ba3f6faa6.jpeg'"
+    },
+    {
+      "Confidence": 67.0230636597,
+      "S.No": 16,
+      "Trash_found": "i",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Fa35246a7-d2b1-45a9-a628-ddad1ba3efc3.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/4ff63b0e629e4547a9cfa24c39362bbe.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_4ff63b0e629e4547a9cfa24c39362bbe.jpeg"
+    },
+    {
+      "Confidence": 85.931388855,
+      "S.No": 17,
+      "Trash_found": "j",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F6291d7d0-5e43-4a0b-b29f-4e557e14a951.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/916057cbf5ca424aa036659536e3bc98.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_916057cbf5ca424aa036659536e3bc98.jpeg"
+    },
+    {
+      "Confidence": 97.3189086914,
+      "S.No": 18,
+      "Trash_found": "k",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F0e87afe2-69c7-49a2-a473-79e23fbf8975.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg"
+    },
+    {
+      "Confidence": 83.218963623,
+      "S.No": 19,
+      "Trash_found": "l",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/ceeff473c2934ef3afe5d0b33f88990b.jpeg",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Ff90bec99-9add-497d-92c7-6f8b94730fd1.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_ceeff473c2934ef3afe5d0b33f88990b.jpeg"
+    },
+    {
+      "Confidence": 75.135635376,
+      "S.No": 20,
+      "Trash_found": "m",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F7f2a683b-9e5a-456b-aacc-35ae2e59ddee.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/a225c9d171e14d23b43d2e4ba3f6faa6.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_a225c9d171e14d23b43d2e4ba3f6faa6.jpeg'"
+    },
+    {
+      "Confidence": 67.0230636597,
+      "S.No": 21,
+      "Trash_found": "n",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Fa35246a7-d2b1-45a9-a628-ddad1ba3efc3.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/4ff63b0e629e4547a9cfa24c39362bbe.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_4ff63b0e629e4547a9cfa24c39362bbe.jpeg"
+    },
+    {
+      "Confidence": 85.931388855,
+      "S.No": 22,
+      "Trash_found": "o",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F6291d7d0-5e43-4a0b-b29f-4e557e14a951.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/916057cbf5ca424aa036659536e3bc98.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_916057cbf5ca424aa036659536e3bc98.jpeg"
+    },
+    {
+      "Confidence": 97.3189086914,
+      "S.No": 23,
+      "Trash_found": "p",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F0e87afe2-69c7-49a2-a473-79e23fbf8975.jpeg",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/3111e4a8c3de40d2a089eaaa6a96ca18.jpeg"
+    },
+    {
+      "Confidence": 83.218963623,
+      "S.No": 24,
+      "Trash_found": "q",
+      "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/ceeff473c2934ef3afe5d0b33f88990b.jpeg",
+      "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2Ff90bec99-9add-497d-92c7-6f8b94730fd1.jpeg",
+      "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_ceeff473c2934ef3afe5d0b33f88990b.jpeg"
+    },
+    {
+      "Confidence": 75.135635376,
+      "S.No": 25,
+      "Trash_found": "r",
       "image_key": "h7oaN1mBlN%2Fyt6p30uDnj%2F5kBftHersQ%2F7f2a683b-9e5a-456b-aacc-35ae2e59ddee.jpeg",
       "image_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/a225c9d171e14d23b43d2e4ba3f6faa6.jpeg",
       "image_thumbnail_url": "https://s3.ap-south-1.amazonaws.com/ml-project-bucket/T_a225c9d171e14d23b43d2e4ba3f6faa6.jpeg'"

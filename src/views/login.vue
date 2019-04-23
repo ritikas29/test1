@@ -40,7 +40,7 @@ import axios from 'axios'
         },
         methods: {
             login() {    
-                axios.post('http://192.168.15.212:8000/login',this.input)
+                axios.post('http://192.168.15.224:8000/login',this.input)
 				.then(response => {
                     let newToken=response.data.authorization;
                     console.log(response)
