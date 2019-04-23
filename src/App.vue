@@ -1,12 +1,13 @@
-
 <template>
     <div id="app">
         <div id="nav">
-            <router-link v-if="token" to="/login" v-on:click.native="logout()" replace>
-            <button type="button" class="btn btn-secondary">logout</button>  
+            <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>
+            <button type="button" class="fa fa-sign-out">logout</button>
+    
        </router-link>
         </div>
-        <router-view @token="setAuthenticated" />
+        <router-view @authenticated="setAuthenticated" />
+        
      </div>
 </template>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -15,30 +16,27 @@
 <script>
     export default {
         name: 'App',
+
         data() {
             return {
-               // authenticated: false,
-                token: false,
-               // mockAccount: {
-                 //   username: "ritika",
-                  //  password: "cool"
-                //}
+                authenticated: false,
+                mockAccount: {
+                    username: "ritika",
+                    password: "cool"
+                }
             }
         },
         mounted() {
-          if (!token) {
-          return this.$router.push({ name: "login" });
-        }
-           // if(!this.authenticated) {
-             //   this.$router.replace({ name: "login" });
-            //}
+            if(!this.authenticated) {
+                this.$router.replace({ name: "login" });
+            }
         },
         methods: {
             setAuthenticated(status) {
-                this.token = status;
+                this.authenticated = status;
             },
             logout() {
-                this.token = false;
+                this.authenticated = false;
             }
         }
     }
@@ -53,17 +51,21 @@
     h1 {
         padding: 0;
         margin-top: 0;
+
     }
     #app {
-        width: 1024px;
+       width: 80%; 
         margin: auto;
+        height: 100%;
+        padding:10px;
+        border-radius:4px;
     }
     #nav {
-    
+    border-radius:4px;
         text-align: right;
     }
     button{
-    background: var(--primary);
+    background: blue;
     color: #ffffff;
     padding: 12px 12px;
     border: none;

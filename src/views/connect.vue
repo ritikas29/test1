@@ -113,7 +113,7 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #e6e6e6;
+  background-color: #6881b4e6;
   overflow-x: hidden;
   /*padding-top: 20px;*/
   line-height:1.5;
@@ -126,7 +126,7 @@ export default {
   text-decoration: none;
   line-height:1.5;
   font-size: 20px;
-  color: #0000ff;
+  color: #e6e6e6;
   display: block;
   float:left;
   padding:5px 10px;
@@ -136,7 +136,7 @@ export default {
 .nav a:hover {
   background-color: white;
   color: #262626;
-  box-shadow: 0 5px 1px lightgrey;
+  box-shadow: 0 3px 1px lightgrey;
   
 }
 

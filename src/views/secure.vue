@@ -137,7 +137,7 @@ import axios from "axios"
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #e6e6e6;
+  background-color: #021233e6;
   overflow-x: hidden;
   /*padding-top: 20px;*/
   line-height:1.5;
@@ -150,7 +150,7 @@ import axios from "axios"
 .nav a {
   text-decoration: none;
   font-size: 20px;
-  color: #0000ff;
+  color: #fff;
   display: block;
   float:left;
   padding:5px 10px;
