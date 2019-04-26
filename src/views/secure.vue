@@ -1,43 +1,23 @@
 <template>
-    <div id="app">
+<div class="main-app" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 crossorigin="anonymous">  
-<div class="nav flex-column nav-pills" 
-id="v-pills-tab" 
-role="tablist"
- aria-orientation="vertical">
-<router-link class="nav-link "
- id="v-pills-home-tab" 
- data-toggle="pill"  
- role="tab"
-  aria-controls="v-pills-home" 
-  aria-selected="true"
-   :to="'/secure'"><i class="fa fa-home"></i> Home</router-link>
-<router-link class="nav-link" 
- id="v-pills-profile-tab" 
- data-toggle="pill" 
-  role="tab" 
-  aria-controls="v-pills-profile" aria-selected="false" 
-  :to="'/Connect'"><i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link></div>
-<div class="tab-content" 
-id="v-pills-tabContent">
- <div  id="v-pills-home"
-  role="tabpanel" 
-  aria-labelledby="v-pills-home-tab">
-   <div class="tab-pane fade" 
-   id="v-pills-profile" 
-   role="tabpanel"
-    aria-labelledby="v-pills-profile-tab">  
-      </div>
-</div>
+<div class="nav flex-column nav-pills"  id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<router-link class="nav-link " id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" aria-selected="true" :to="'/secure'">
+<i class="fa fa-home"></i> Home</router-link>
+<router-link class="nav-link" id="v-pills-profile-tab" data-toggle="pill"  role="tab"  aria-controls="v-pills-profile" aria-selected="false"  :to="'/Connect'">
+<i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link>
+</div> <!-- class="nav flex-column nav-pills"-->
+<div class="tab-content" id="v-pills-tabContent" >
+<p>upload</p>
+<!--<div  id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    <div class="tab-pane fade" id="v-pills-profile"  role="tabpanel" aria-labelledby="v-pills-profile-tab">  
+    </div>
+</div>-->
 
- <div class="container">
+ <!--<div class="container">-->
 <div class="file"> <!--btn btn-lg btn-primary-->
-  <!-- <button type="button" class="btn btn-lg btn-primary" disabled>Upload</button><br/>-->
-   <!--input type="file" @change="file"/>
-       <button type="button" class="btn btn-secondary" v-on:click="submitFiles()" >SUBMIT</button-->
-    <!--input type="file" v-on:change="onFileChanged"-->
   <label>Files
         <input type="file" id="files" ref="files" multiple v-on:change="handleFilesUpload()"/>
       </label>
@@ -46,7 +26,7 @@ id="v-pills-tabContent">
     </div>
     <br/>
     </div>
-  </div>
+  
   </div>
 </template>
 
@@ -84,7 +64,7 @@ import axios from "axios"
         let formData = new FormData();
 
         /*
-          Iteate over any file sent over appending the files
+          Iterate over any file sent over appending the files
           to the form data.
         */
         for( var i = 0; i < this.files.length; i++ ){
@@ -97,7 +77,7 @@ import axios from "axios"
           Make the request to the POST /multiple-files URL
         */
        let token = localStorage.getItem("token")
-        axios.post( 'http://192.168.15.224:8000/upload',
+        axios.post( 'http://192.168.15.92:8000/upload',
           formData,
           {
             headers: {
@@ -131,26 +111,17 @@ import axios from "axios"
 <style  scoped>
 
 .nav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #e6e6e6;
-  overflow-x: hidden;
-  /*padding-top: 20px;*/
-  line-height:1.5;
-  margin:0 auto;
-  padding:45px 0px;
-  
-
+  width: 16%;
+  top: auto;
+  position: static;
+  float: left;
+  height:90vh;
 }
 
 .nav a {
   text-decoration: none;
   font-size: 20px;
-  color: #0000ff;
+  color: #fff;
   display: block;
   float:left;
   padding:5px 10px;
@@ -173,11 +144,6 @@ import axios from "axios"
 }*/
 
 
-body {
-  background: transparent;
-  width: 100%;
-  height: 100%;
-}
 /*.file{
   background:rgb(176, 217, 224);
   display: flex;
@@ -191,10 +157,12 @@ label{
       display: block;
       min-width: 80%; 
       margin-top: 5px;
-      position: relative;
+      position: fixed;
       float:left;
       width:80%;
-      height: 100%;
+      top: 50%;
+      left:40%;
+
 }
    #secure {
        /* padding: 200px; */
@@ -241,22 +209,42 @@ button:hover{
     --secondary: #117aa7;
 }
 button{
-    background: var(--primary);
+    background: #13195d;
     color: hsl(0, 27%, 96%);
     padding: 0.5px 12px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-    margin-top: 25px;
-    height:34px;
+/*     margin-top: 25px;
+ */    height:34px;
     line-height: 34px;
     float: left;
     margin-right:15px;
-    }
+    top: 50%;
+    right:25%;
+    position:fixed;
+}
 
 button:hover{
     background:  var(--secondary);
     transition: 0.2s all ease;
+}
+.tab-content{
+    width: 84%;
+    float: right;
+    height:80vh;
+}
+
+.main-app{
+    display: inline-block;
+   width:100%;
+}
+.tab-content p{
+  text-align: center;
+    top:30%;
+    left: 50%;
+    
+    position: fixed;
 }
 </style>
 

@@ -74,15 +74,25 @@ field: params[0].field,
 });
 this.loadItems();
 },
-loadItems() {
+/* loadItems() {
     console.log("server params are",this.serverParams)
-SERVER_API.get('http://192.168.15.224:8000/extract/features', {params: this.serverParams }).then(response => {
+SERVER_API.get('http://192.168.15.135:8000/extract/features', {params: this.serverParams }).then(response => {
 console.log(response);
 //If there totalresults count is 40
 this.totalRecords =response.data.result.number_of_rows;
 this.rows = response.data.result.result;
 });
-}
+ */
+ loadItems() {
+    console.log("server params are",this.serverParams)
+   SERVER_API.get('http://localhost:3000/result', {params: this.serverParams }).then(response => {
+console.log(response);
+//If there totalresults count is 40
+this.totalRecords =40;
+this.rows = response.data;
+});
+ 
+ }
 }
 }
 

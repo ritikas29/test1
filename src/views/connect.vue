@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="main-app">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 crossorigin="anonymous">  
@@ -20,38 +20,16 @@ role="tablist"
   role="tab" 
   aria-controls="v-pills-profile" aria-selected="false" 
   :to="'/Connect'"><i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link></div>
-<div class="tab-content" 
-id="v-pills-tabContent">
- <div  id="v-pills-home"
-  role="tabpanel" 
-  aria-labelledby="v-pills-home-tab">
-   <div class="tab-pane fade" 
-   id="v-pills-profile" 
-   role="tabpanel"
-    aria-labelledby="v-pills-profile-tab">  
-      </div>
-      </div>
-      </div>
-       <div class="row">
+
+       <div class="tab-content">
 <div class="col">
-<vue-good-table
-mode="remote"
-:columns="columns"
-:rows="rows"
-:line-numbers="true"
-:totalRows="totalRecords"
-:pagination-options="{ enabled: true }"
-@on-page-change="onPageChange"
-@on-sort-change="onSortChange"
-@on-per-page-change="onPerPageChange" >
+<vue-good-table mode="remote" :columns="columns" :rows="rows" :line-numbers="true" :totalRows="totalRecords"
+:pagination-options="{ enabled: true }" @on-page-change="onPageChange" @on-sort-change="onSortChange" @on-per-page-change="onPerPageChange" >
 <template slot="table-row" slot-scope="props">
-<span v-if="props.column.field == 'S.No'">
-      <span style="font-weight: bold; color: blue;">{{props.formattedRow[props.column.field]}}</span> 
-    </span>
-<span v-else>
-    <span v-if="props.column.field === 'download'">  
+<span v-if="props.column.field === 'download'">  
          <span> <button type="button" class="btn btn-dark" v-on:click="download(props.formattedRow.file_name)" >Download</button> </span>
     </span>
+<span v-else>
     <span v-if="props.column.field === 'result'">  
          <span> <router-link to="/result">
                                    <button type="button" class="btn btn-secondary">Result
@@ -118,22 +96,22 @@ methods: {
            });
   this.loadItems();
       },
-  loadItems() {
+  /* loadItems() {
       console.log("server params are",this.serverParams)
-     SERVER_API.get('http://192.168.15.224:8000/files', {params: this.serverParams }).then(response => {
+     SERVER_API.get('http://192.168.15.135:8000/files', {params: this.serverParams }).then(response => {
    console.log(response);
 //If there totalresults count is 40
       this.totalRecords =response.data.result.number_of_rows;
       this.rows = response.data.result.result;
      });
-     /*loadItems() {
+   */   loadItems() {
       console.log("server params are",this.serverParams)
      SERVER_API.get('http://localhost:3000/filenames', {params: this.serverParams }).then(response => {
    console.log(response);
 //If there totalresults count is 40
      // this.totalRecords =response.data.result.number_of_rows;
       this.rows = response.data;
-     });*/
+     });
         },
         download(file_name) {
           console.log(file_name)
@@ -150,7 +128,7 @@ methods: {
                                 document.body.appendChild(link);
                                 link.click();
                               }); */
-      SERVER_API.get('http://192.168.15.224:8000/download', {params: {
+      SERVER_API.get('http://192.168.15.92:8000/download', {params: {
         "file_name": file_name
       } }).then(response => {
     console.log(response);
@@ -179,18 +157,11 @@ methods: {
 <style  scoped>
   
   .nav {
-  height: 100%;
-  width: 200px;
+  width: 16%;
+  top: auto;
   position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #e6e6e6;
-  overflow-x: hidden;
-  /*padding-top: 20px;*/
-  line-height:1.5;
-  margin:0 auto;
-  padding:45px 0px;
+  float: left;
+  height:90vh;
 
 }
 
@@ -198,7 +169,7 @@ methods: {
   text-decoration: none;
   line-height:1.5;
   font-size: 20px;
-  color: #0000ff;
+  color: #fff;
   display: block;
   float:left;
   padding:5px 10px;
@@ -215,6 +186,15 @@ methods: {
 .main {
   margin-left: 100px; /* Same as the width of the sidenav */
 } 
-
+.main-app{
+    display: inline-block;
+   width:100%;
+}
+.tab-content{
+    width: 84%;
+    float: right;
+    height:80vh;
+    padding-top:15px;
+}
 
 </style>

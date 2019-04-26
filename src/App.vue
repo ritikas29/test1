@@ -1,8 +1,8 @@
 
 <template>
-    <div id="app">
-        <div id="nav">
-            <router-link v-if="token" to="/login" v-on:click.native="logout()" replace>
+    <div style="height:100%" >
+        <div id="nav" class="header" v-if="token">
+            <router-link  to="/login" v-on:click.native="logout()" replace>
             <button type="button" class="btn btn-secondary">logout</button>  
        </router-link>
         </div>
@@ -47,7 +47,7 @@
      @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
     :root{
-    --primary: #2667a8;
+    --primary:#13195d;
     --secondary:#040333;
 }
     h1 {
@@ -63,7 +63,7 @@
         text-align: right;
     }
     button{
-    background: var(--primary);
+    background:#13195d;
     color: #ffffff;
     padding: 12px 12px;
     border: none;
@@ -89,4 +89,23 @@ button:hover{
     background: purple;
     transition: 0.2s all ease;
 }*/
+.header{
+    border-bottom:1px solid #ccc;
+    padding: 10px;
+    box-shadow: 3px 2px 5px #ccc;
+
+}
+.header-ll{
+   float: left;
+   width: 20%;
+}
+.header-mm{
+   float: left;
+   width: 60%;
+}
+.header-rr{
+   float: right;
+   width: 20%;
+}
+
 </style>
