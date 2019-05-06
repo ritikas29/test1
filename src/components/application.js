@@ -16,8 +16,14 @@
 // const imagePath = (name) => images(name, true)
 
 import axios from 'axios';
-
+let token = localStorage.getItem("token")
 export const SERVER_API = axios.create({
-baseURL: '/api/v1/',
-responseType: 'json'
+        baseURL: '/api/v1/',
+        responseType: 'json',
+        headers: {
+            'X-AUTH':'localStorage.token',
+        //'authorization':token,
+         //responseType :'arraybuffer',
+        'token':  token
+        }   
 });

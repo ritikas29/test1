@@ -1,37 +1,21 @@
 <template>
-<div class="main-app">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-crossorigin="anonymous">  
-<div class="nav flex-column nav-pills" 
-id="v-pills-tab" 
-role="tablist"
- aria-orientation="vertical">
-<router-link class="nav-link "
- id="v-pills-home-tab" 
- data-toggle="pill"  
- role="tab"
-  aria-controls="v-pills-home" 
-  aria-selected="true"
-   :to="'/secure'"><i class="fa fa-home"></i> Home</router-link>
-<router-link class="nav-link" 
- id="v-pills-profile-tab" 
- data-toggle="pill" 
-  role="tab" 
-  aria-controls="v-pills-profile" aria-selected="false" 
-  :to="'/Connect'"><i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link></div>
+  <div class="main-app">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <router-link class="nav-link " id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" 
+          aria-selected="true" :to="'/secure'"><i class="fa fa-home"></i> Home</router-link>
+        <router-link class="nav-link" id="v-pills-profile-tab" data-toggle="pill" role="tab" aria-controls="v-pills-profile" aria-selected="false" 
+          :to="'/Connect'">
+          <i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link></div>
 
- <div v-if="result" class="tab-content">
-        <paginate></paginate>
-
-     </div>
-     </div>
-     </div>
-
-    
-     </template>
+          <div v-if="result" class="tab-content">
+                  <paginate></paginate>
+          </div>
+  </div>
+ </template>
      <script>
-    import paginate from "../components/paginate.vue"
+import paginate from "../components/paginate.vue"
 export default {
     components:{ 
             Paginate: paginate

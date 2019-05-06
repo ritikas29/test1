@@ -6,8 +6,7 @@
             <h2>Register</h2>
         </div>
         <form action="#">
-
-            <div class="form-icon">
+             <div class="form-icon">
                 <label for="username">Username</label>
                 <input type="text" v-model="input1.username" placeholder="username">
                 <span class="fa fa-envelope" aria-hidden="true"></span>
@@ -22,7 +21,10 @@
                 <input type="password" v-model="input1.confirmpassword" placeholder="Confirm Password">
                 <span class="fa fa-key" aria-hidden="true"></span>
             </div>
-            <button type="submit" v-on:click="signin()">Register</button>
+
+            <router-link to="/login">
+                                    <button type="submit" v-on:click="signin()">Register</button>
+                                    </router-link> 
         </form>
     </div>
 </template>
@@ -53,18 +55,15 @@ export default {
          }*/
          methods: {
              signin() {
-                  axios.post('http://192.168.15.212:8000/register',this.input1)
-                  .then(response => {
-                      console.log(response);
-                      // let token= response.data.username.api_token;
-                      //localStorage.setItem('token',token);
-                    
-                  });
-         },
+                  axios.post('http://192.168.15.141:8000/register',this.input1,)
+                  .then(function(response) {
+                       
+                        })
+                   },
         
      }
 }
 </script>
 <style src="./register.css" scoped>
 </style>
->>>>>>> Stashed changes
+

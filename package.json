@@ -18,6 +18,7 @@
     "mdbvue": "^5.1.0",
     "pagination": "^0.4.6",
     "v-img": "^0.2.0",
+    "vee-validate": "^2.2.5",
     "vue": "^2.6.6",
     "vue-axios": "^2.1.4",
     "vue-bootstrap-pagination": "^2.10.3",
@@ -27,7 +28,8 @@
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.2",
     "vuejs-paginate": "^2.1.0",
-    "vuejs-uib-pagination": "^1.0.6"
+    "vuejs-uib-pagination": "^1.0.6",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.3.0",

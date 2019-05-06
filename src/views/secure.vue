@@ -1,32 +1,31 @@
 <template>
-<div class="main-app" >
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-crossorigin="anonymous">  
-<div class="nav flex-column nav-pills"  id="v-pills-tab" role="tablist" aria-orientation="vertical">
-<router-link class="nav-link " id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" aria-selected="true" :to="'/secure'">
-<i class="fa fa-home"></i> Home</router-link>
-<router-link class="nav-link" id="v-pills-profile-tab" data-toggle="pill"  role="tab"  aria-controls="v-pills-profile" aria-selected="false"  :to="'/Connect'">
-<i class="fa fa-file" aria-hidden="true"></i> Download Files</router-link>
-</div> <!-- class="nav flex-column nav-pills"-->
-<div class="tab-content" id="v-pills-tabContent" >
-<p>upload</p>
-<!--<div  id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-    <div class="tab-pane fade" id="v-pills-profile"  role="tabpanel" aria-labelledby="v-pills-profile-tab">  
-    </div>
-</div>-->
-
- <!--<div class="container">-->
-<div class="file"> <!--btn btn-lg btn-primary-->
-  <label>Files
-        <input type="file" id="files" ref="files" multiple v-on:change="handleFilesUpload()"/>
-      </label>
-      
-      <button class="btn btn-secondary" v-on:click="submitFiles()">Submit</button>
-    </div>
-    <br/>
-    </div>
-  
+  <div class="main-app" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+       crossorigin="anonymous">  
+       <div class="nav flex-column nav-pills"  id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <router-link class="nav-link " id="v-pills-home-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-home" aria-selected="true" :to="'/secure'">
+                    <i class="fa fa-home"></i> Home
+            </router-link>
+            <router-link class="nav-link" id="v-pills-profile-tab" data-toggle="pill"  role="tab"  aria-controls="v-pills-profile" aria-selected="false"  :to="'/Connect'">
+                    <i class="fa fa-file" aria-hidden="true"></i> Download Files
+            </router-link>
+        </div>                  <!-- class="nav flex-column nav-pills"-->
+        <div class="tab-content" id="v-pills-tabContent" >
+                  <p>upload</p>
+                                    <!--<div  id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                                        <div class="tab-pane fade" id="v-pills-profile"  role="tabpanel" aria-labelledby="v-pills-profile-tab">  
+                                        </div>
+                                    </div>-->
+                                  <!--<div class="container">-->
+             <div class="file">             <!--btn btn-lg btn-primary-->
+                    <label>Files
+                        <input type="file" id="files"   accept=".xlsx, .xls, .csv" ref="files" multiple v-on:change="handleFilesUpload()"/>
+                    </label>
+                            <button class="btn btn-secondary" v-on:click="submitFiles()">Submit</button>    
+              </div>
+            <br/>
+     </div>
   </div>
 </template>
 
@@ -37,17 +36,17 @@ import axios from "axios"
     export default {
         
         name: 'Secure',
-        //components:{ 
-          //  Paginate: paginate
-        
-          //},
+                      //components:{ 
+                        //  Paginate: paginate
+                      
+                        //},
         data() {
             return {
-              //  result : false,
-                //showData(){
-                  //  this.result = true;
-                    //alert('sucessfully 1');
-                //},
+                      //  result : false,
+                        //showData(){
+                          //  this.result = true;
+                            //alert('sucessfully 1');
+                        //},
                  files: ''
             }
         },
@@ -62,51 +61,45 @@ import axios from "axios"
           Initialize the form data
         */
         let formData = new FormData();
-
         /*
           Iterate over any file sent over appending the files
           to the form data.
         */
-        for( var i = 0; i < this.files.length; i++ ){
-          let file = this.files[i];
+          for( var i = 0; i < this.files.length; i++ ){
+            let file = this.files[i];
 
-          formData.append('files[' + i + ']', file);
-        }
+            formData.append('files[' + i + ']', file);
+          }
            
         /*
           Make the request to the POST /multiple-files URL
         */
-       let token = localStorage.getItem("token")
-        axios.post( 'http://192.168.15.92:8000/upload',
-          formData,
-          {
-            headers: {
-              'X-AUTH':'localStorage.token',
-              'authorization':token,
-              'token':token,
-                'Content-Type': 'multipart/form-data'
-            }
-          }
-        ).then(function(){
-          console.log('SUCCESS!!');
-        })
-        .catch(function(){
-          console.log('FAILURE!!');
-        });
+        let token = localStorage.getItem("token")
+              axios.post( 'http://192.168.15.141:8000/upload',
+                    formData,
+                        {
+                            headers: {
+                              'X-AUTH':'localStorage.token',
+                              'authorization':token,
+                              'token':token,
+                                'Content-Type': 'multipart/form-data'
+                            }
+                        }
+              ).then(function(){
+                        console.log('SUCCESS!!');
+              })
+              .catch(function(){
+                    console.log('FAILURE!!');
+              });
       },
-
       /*
         Handles a change on the file upload
       */
       handleFilesUpload(){
-        this.files = this.$refs.files.files;
+              this.files = this.$refs.files.files;
       }
     }
-    }
-
-          
-          
-
+  }
 </script>
 <style  scoped>
 

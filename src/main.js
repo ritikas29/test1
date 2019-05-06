@@ -1,5 +1,3 @@
-
-
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
@@ -23,12 +21,13 @@ Vue.http.headers.common['Access-Control-Allow-Headers']='Origin,Accept,Content-T
 Vue.use(VueImg);
 
 //import paginate from "./components/paginate.vue"
+                   
 
 window.token=localStorage.getItem('token');
 
 window.axios=axios
-
-window.axios.defaults.params={token:window.token}
+//axios.defaults.headers.common['Authorization'] = store.getState().session.token;
+//window.axios.defaults.params={token:window.token}
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue);

@@ -1,7 +1,5 @@
-
-
 <template>
- <div class="login">
+    <div class="login">
         <div class="image">
             <i class="zmdi zmdi-account-circle  zmdi-hc-5x"></i>
             <h2>Login</h2>
@@ -19,14 +17,12 @@
             </div>
             <button type="submit" v-on:click="login()">Login</button>
                     <router-link to="/register">signup</router-link>            
-        </form>
-        
+        </form>    
     </div>
 </template>
-
-
 <script>
 import axios from 'axios'
+import { error } from 'util';
    // let header = {headers: {auth1:"1"}}
     export default {
         name: 'Login',
@@ -39,20 +35,58 @@ import axios from 'axios'
             }
         },
         methods: {
-            login() {    
-                axios.post('http://192.168.15.224:8000/login',this.input)
+            login() {     
+                axios.post('http://192.168.15.141:8000/login',this.input)
 				.then(response => {
-                    let newToken=response.data.authorization;
-                    console.log(response)
-					window.token=newToken;
-					let user=response.data.user;	
-					localStorage.setItem('token',newToken);
-					localStorage.setItem('user',JSON.stringify(user));//turns a JavaScript object into JSON text and stores that JSON text in a string.
-					window.axios.defaults.params={token:newToken}
-                    this.$emit('login',user);
-                    this.$emit("token",true)
-					this.$router.replace({name:"secure"});
-				});
+                     let newToken=response.data.authorization;
+                     console.log(newToken)
+                     console.log(response)
+                     let token = localStorage.getItem("token")
+                     console.log(token)
+                     this.$router.push('/secure')
+                     window.token=newToken;
+                     let user=response.data.user;	
+                     localStorage.setItem('token',newToken);
+                     localStorage.setItem('user',JSON.stringify(user));//turns a JavaScript object into JSON text and stores that JSON text in a string.
+                        //window.axios.defaults.params={token:newToken}
+                     this.$emit('login',user);
+                     this.$emit("token",true)
+                     this.$router.replace({name:"secure"});
+                }).catch(error => {
+                    console.log(error)
+                })
+
+            }
+           
+
+            // login() {
+            //     let token = localStorage.getItem("token")
+            //              axios.post('http://192.168.15.141:8000/login',this.input, {
+            //                 headers: {
+            //                     'X-AUTH':'localStorage.token',
+            //                     'authorization':token,
+            //                     'token':token,
+            //                     'Content-Type': 'application/json'
+            //                 }
+                    
+            //             })
+            //             .then(response => {
+            //                 //alert('login successful')
+            //                 let newToken=response.data.authorization
+            //                 window.token=newToken;
+			// 		        let user=response.data.user;	
+			// 		        localStorage.setItem('token',newToken);
+			// 		        localStorage.setItem('user',JSON.stringify(user))
+            //                     console.log(response.headers)
+            //                     console.log(response.data)
+            //                 this.$router.push('/secure')
+                            
+            //                 // return  response;
+            //             })
+            //             .catch((error) => {
+            //                 //return  error;
+            //             });
+            // }
                   //axios.post('http://192.168.15.81:8000/login',this.input, header )
                   //.then(response => {
                     //  console.log(response);
@@ -87,7 +121,7 @@ import axios from 'axios'
                 //});
 
 
-            }//,
+            //,
             // navigate() {
             //     router.push({ name: "register" });
             // }
